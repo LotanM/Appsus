@@ -7,10 +7,17 @@ export default {
     name: 'email-app',
     template: `
     <section class="email-app">
-    <router-link to="/email/compose">Compose new email</router-link>
     <email-filter @filtered="setFilter"/>
-        <h1>Email App</h1>
+    <div class="main">
+        <ul class="side-menu">
+            <li class="compose">
+                <router-link to="/email/compose">Compose</router-link>
+             </li> 
+            <li class="inbox"> inbox </li> 
+            <li class="sent"> sent </li> 
+        </ul>
         <email-list :emails="emailsToShow" @remove="removeEmail"/>
+    </div>
     </section>
     `,
     data() {

@@ -1,1 +1,57 @@
+<<<<<<< HEAD
 @import './cmps/email-filter.cmp.css'
+=======
+
+
+.email-app {
+    margin: 0 10px
+}
+
+.email-app .main {
+    display: flex;
+}
+
+.email-app ul {
+    display: flex;
+    flex-direction: column;
+    background-color: none;
+    width: 200px;
+}
+
+.email-app .side-menu li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2px;
+    font-size: 15px;
+    padding: 5px;
+    border-radius: 10px 50px 50px 10px;
+    text-transform: capitalize;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.email-app .side-menu .compose {    
+    background-color: white;
+    border-radius: 50px;
+    margin-bottom: 20px;
+    width: 100px;
+}
+.email-app .side-menu .compose::before {
+    content: url('../../../icons/add.svg');
+}
+.email-app .side-menu .inbox::before {
+    content: url('../../../icons/inbox.svg');
+}
+.email-app .side-menu .sent::before {
+    content: url('../../../icons/send.svg');
+}
+
+.email-app .side-menu li:hover:not(:first-child) {
+    background-color: #ffffff9d;
+   border-radius: 10px 50px 50px 10px;
+}
+
+.email-app a {
+    text-decoration: none;
+}
+>>>>>>> 02bcff3cfdc36dd458bb5013a5f59b4204be4a5f

@@ -1,16 +1,24 @@
 @import './apps/email/email-app.css';
 @import './cmps/app-header.css';
+@import './apps/email/email-app.css';
+@import './apps/book/pages/book-review.cmp.css';
 
 * {
     box-sizing: border-box;
 }
 body {
-    background-color: rgb(247, 224, 189);
+    background-color: rgb(156, 228, 204);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.star-list:hover .star, .selected {
-    color: orange;
+
+/* LIST */
+
+li {
+    list-style: none;
 }
-.star-list .star:hover~.star {
-    color: black
+
+ul {
+    margin: 0;
+    padding: 0;
 }
