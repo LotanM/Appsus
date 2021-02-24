@@ -3,8 +3,7 @@ export default {
     props: ['email'],
     template: `
         <section class="email-preview">
-            <p>{{email.subject}}</p>
-            <p>{{email.body.substring(0, 100)}}...</p> 
+    <h4>{{email.subject}} <span class="email-desc">{{email.body.substring(0, 50)}}...</span></h4> 
         </section>
         `,
 }

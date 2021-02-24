@@ -9,13 +9,11 @@ export default {
     <section class="email-details" v-if="email">
         <router-link to="/email">Back to inbox</router-link>
         <button @click="removeEmail(email.id)">Delete</button>
-        <!-- <div class=""> -->
-            <h1 class="subject">Subject: {{email.subject}}</h1>
-            <pre class="body">{{email.body}}</pre>
-            <p>{{email.sentAt}}</p>
-            <button><--Reply</button>
-            <button>Forward--></button>
-        <!-- </div> -->
+        <h1 class="subject">Subject: {{email.subject}}</h1>
+        <p class="body">{{email.body}}</p>
+        <p>{{email.sentAt}}</p>
+        <button><--Reply</button>
+        <button>Forward--></button>
     </section>
     `,
     data() {

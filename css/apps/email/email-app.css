@@ -1,5 +1,8 @@
 @import './cmps/email-filter.cmp.css';
 @import './cmps/email-list.cmp.css';
+@import './cmps/email-details.cmp.css';
+@import './cmps/email-preview.cmp.css';
+
 
 
 .email-app {
@@ -14,7 +17,8 @@
     display: flex;
     flex-direction: column;
     background-color: none;
-    width: 200px;
+    width:fit-content;
+    margin-right: 2rem;
 }
 
 .email-app .side-menu li {

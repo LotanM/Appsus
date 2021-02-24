@@ -1,7 +1,9 @@
 .app-header {
+    /* margin: 0 auto; */
     background-color: #2ECC71;
     padding: 10px;
     height: 10vh;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
