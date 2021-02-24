@@ -70,26 +70,34 @@ function _createEmails() {
             },
             {
                 id: utilService.makeId(),
-                subject: 'looli?',
-                body: 'Pick left!',
+                subject: 'Your free trial is over',
+                body: `Your Avocode free trial is over
+                        The free trial for Appsus team has ended.
+                        Please log in and purchase a subscription within 14 days to keep working on your design projects.`,
                 isRead: true,
                 sentAt: 1651139330594,
-                from: 'welcome@workona.com',
+                from: 'hello@avocode.com',
                 to: 'appsus@ca.com'
             },
             {
                 id: utilService.makeId(),
-                subject: 'shoopi?',
-                body: 'Pick right!',
+                subject: 'Try Amazon Music Unlimited',
+                body: `We hope you found this message to be useful. However, if you'd rather not receive future e-mails of this sort from Amazon.com, please opt-out here.
+                © 2021 Amazon.com, Inc. or its affiliates. All rights reserved. Amazon, Amazon Echo, Amazon Music, Prime,
+                and all related logos are trademarks of Amazon.com, Inc. or its affiliates.Amazon.com, 410 Terry Avenue N., Seattle, WA 98109-5210. Reference: 568322510`,
                 isRead: false,
                 sentAt: 17551133930594,
-                from: 'welcome@workona.com',
+                from: 'store-news@amazon.com',
                 to: 'appsus@ca.com'
             },
             {
                 id: utilService.makeId(),
-                subject: 'shuni?',
-                body: 'Pick more!',
+                subject: 'Google Key exposed on GitHub',
+                body: `GitGuardian has detected the following Google Key exposed within your GitHub account.
+                Details
+                - Secret type: Google Key
+                - Repository: LotanM/Travel-Tip
+                - Pushed date: February 17th 2021, 20:40:36 UTC`,
                 isRead: false,
                 sentAt: 1551193930594,
                 from: 'welcome@workona.com',

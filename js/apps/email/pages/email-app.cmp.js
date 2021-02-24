@@ -1,7 +1,7 @@
 import { emailService } from '../services/email.service.js'
 import emailFilter from '../cmps/email-filter.cmp.js'
 import emailList from '../cmps/email-list.cmp.js'
-import emailCompose from '../cmps/email-compose.cmp.js'
+
 
 export default {
     name: 'email-app',
@@ -12,11 +12,11 @@ export default {
         <ul class="side-menu">
             <li class="compose">
                 <router-link to="/email/compose">Compose</router-link>
-             </li> 
+            </li> 
             <li class="inbox"> inbox </li> 
             <li class="sent"> sent </li> 
         </ul>
-        <email-list :emails="emailsToShow" @remove="removeEmail"/>
+        <router-view :emails="emailsToShow" @remove="removeEmail"/>
     </div>
     </section>
     `,
@@ -60,6 +60,5 @@ export default {
     components: {
         emailList,
         emailFilter,
-        emailCompose
     },
 }

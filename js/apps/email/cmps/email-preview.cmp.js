@@ -4,7 +4,7 @@ export default {
     template: `
         <section class="email-preview">
             <p>{{email.subject}}</p>
-            <p>{{email.body}}</p> 
+            <p>{{email.body.substring(0, 100)}}...</p> 
         </section>
         `,
 }
