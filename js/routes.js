@@ -10,7 +10,6 @@ import emailApp from './apps/email/pages/email-app.cmp.js'
 //note routs
 import noteApp from './apps/note/pages/note-app.cmp.js'
 
-
 const routes = [
     {
         path: '/',
