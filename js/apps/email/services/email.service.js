@@ -32,11 +32,11 @@ function addEmail(emailToAdd) {
 function getEmptyEmail() {
     return {
         id: utilService.makeId(),
-        subject: 'test subject',
-        body: 'test body',
+        subject: '',
+        body: '',
         isRead: false,
         sentAt: 1551133930594,
-        from: '',
+        from: 'appsus@ca.com',
         to: ''
     }
 }
@@ -63,7 +63,7 @@ function _createEmails() {
                 body: `© 2021 LinkedIn Ireland Unlimited Company, Wilton Plaza, Wilton Place, Dublin 2.
                         LinkedIn is a registered business name of LinkedIn Ireland Unlimited Company. LinkedIn
                         and the LinkedIn logo are registered trademarks of LinkedIn.`,
-                isRead: true,
+                isRead: false,
                 sentAt: 1451133635584,
                 from: 'invitations@linkedin.com',
                 to: 'appsus@ca.com'
@@ -74,7 +74,7 @@ function _createEmails() {
                 body: `Your Avocode free trial is over
                         The free trial for Appsus team has ended.
                         Please log in and purchase a subscription within 14 days to keep working on your design projects.`,
-                isRead: true,
+                isRead: false,
                 sentAt: 1651139330594,
                 from: 'hello@avocode.com',
                 to: 'appsus@ca.com'

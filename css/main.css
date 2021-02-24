@@ -2,15 +2,25 @@
 @import './cmps/app-header.css';
 @import './apps/email/email-app.css';
 @import './apps/book/pages/book-review.cmp.css';
-
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
+
 body {
     background-color: rgb(156, 228, 204);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+footer {
+    position: absolute;
+    bottom: 0;
+}
+
+a {
+    text-decoration: none;
+}
 
 /* LIST */
 
@@ -21,4 +31,8 @@ li {
 ul {
     margin: 0;
     padding: 0;
+}
+
+h4 {
+    margin: 0;
 }
