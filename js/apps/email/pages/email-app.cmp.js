@@ -1,7 +1,7 @@
-import { emailService } from '../services/email.service.js'
-import emailFilter from '../cmps/email-filter.cmp'
+// import { emailService } from '../services/email.service.js'
+// import emailFilter from '../cmps/email-filter.cmp'
 import emailList from '../cmps/email-list.cmp.js'
-import emailCompose from '../cmps/email-compose.cmp.js'
+// import emailCompose from '../cmps/email-compose.cmp.js'
 
 export default {
     name: 'email-app',
