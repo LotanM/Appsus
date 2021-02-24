@@ -3,7 +3,8 @@ export default {
     template: `
     <header class="app-header">
         <div class="logo">
-            <h1>Books</h1>
+            <h1>Appsus</h1>
+            <!-- <img src="" alt=""> -->
         </div>
         <nav>
             <router-link active-class="active-link" to="/" exact>Home</router-link> |
@@ -12,6 +13,8 @@ export default {
             <router-link to="/email">eMail</router-link>
             <router-link to="/about">About</router-link>
         </nav>
+        <img class="menu-icon" src="../../icons/menu.svg" alt="">
     </header>
     `,
+    
 }
