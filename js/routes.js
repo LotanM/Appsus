@@ -1,25 +1,45 @@
-// import bookApp from './pages/book-app.cmp.js'
-// import homePage from './pages/home-page.cmp.js'
-// import bookDetails from './pages/book-details.cmp.js'
-// import about from './pages/about.cmp.js'
+//main routes
+import homePage from './pages/home-page.cmp.js'
+import aboutPage from './pages/about-page.cmp.js'
+//book routes
+import bookApp from './apps/book/pages/book-app.cmp.js'
+import bookDetails from './apps/book/pages/book-details.cmp.js'
+import bookReview from './apps/book/pages/book-review.cmp.js'
+//email routes
+import emailApp from './apps/mail/pages/email-app.cmp.js'
+//keep routs
+import keepApp from './apps/keep/pages/keep-app.cmp.js'
+
 
 const routes = [
-//     {
-//         path: '/',
-//         component: homePage,
-//     },
-//     {
-//         path: '/book',
-//         component: bookApp
-//     },
-//     {
-//         path: '/about',
-//         component: about
-//     },
-//     {
-//         path: '/book/:bookId',
-//         component: bookDetails
-//     },
+    {
+        path: '/',
+        component: homePage,
+    },
+    {
+        path: '/book',
+        component: bookApp
+    },
+    {
+        path: '/book/:bookId',
+        component: bookDetails
+    },
+    {
+        path: '/book/review/:bookId?',
+        component: bookReview
+    },
+    {
+        path: '/about',
+        component: aboutPage
+    },
+    {
+        path: '/keep',
+        component: keepApp
+    },
+    {
+        path: '/email',
+        component: emailApp
+    }
 ]
 
 export const myRouter = new VueRouter({ routes })
