@@ -2,8 +2,9 @@ import { emailService } from '../services/email.service.js'
 import { eventBus } from '../../../services/event-bus.service.js'
 
 export default {
+    name: 'email-compose',
     template: `
-    <section v-if="email" class="email-edit app-main">
+    <section v-if="email" class="email-compose app-main">
         <h3>Compose a new email</h3>
         <form @submit.prevent="save">
             <label for="email-address">Email Address: </label>
