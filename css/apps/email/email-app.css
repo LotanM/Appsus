@@ -1,6 +1,5 @@
-<<<<<<< HEAD
-@import './cmps/email-filter.cmp.css'
-=======
+@import './cmps/email-filter.cmp.css';
+@import './cmps/email-list.cmp.css';
 
 
 .email-app {
@@ -54,4 +53,3 @@
 .email-app a {
     text-decoration: none;
 }
->>>>>>> 02bcff3cfdc36dd458bb5013a5f59b4204be4a5f
