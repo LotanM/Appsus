@@ -1,22 +1,22 @@
-// import appHeader from './cmps/app-header.cmp.js'
+import appHeader from './cmps/app-header.cmp.js'
 // import userMsg from './cmps/user-msg.cmp.js'
-// import { myRouter } from './routes.js'
+import { myRouter } from './routes.js'
 
 
 const options = {
     el: '#app',
-    // router: myRouter,
+    router: myRouter,
     template: `
         <section>
             <!-- <user-msg /> -->
-            <!-- <app-header /> -->
-            <!-- <router-view /> -->
-            <!-- <footer><p> &copy; Coffeerights 2021</p></footer> -->
+            <app-header />
+            <router-view />
+            <footer><p> &copy; Animalrights 2021</p></footer>
         </section>
     `,
     components:{
         // userMsg,
-        // appHeader
+        appHeader
     }
 }
 
