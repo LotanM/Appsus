@@ -1,5 +1,5 @@
 import { emailService } from '../services/email.service.js'
-import emailFilter from '../cmps/email-filter.cmp'
+import emailFilter from '../cmps/email-filter.cmp.js'
 import emailList from '../cmps/email-list.cmp.js'
 // import emailCompose from '../cmps/email-compose.cmp.js'
 
@@ -28,6 +28,7 @@ export default {
             this.filterBy = filterBy
         },
         removeEmail(emailId) {
+            console.log('last remove');
             emailService.remove(emailId)
                 .then(this.loadEmails)
         }
