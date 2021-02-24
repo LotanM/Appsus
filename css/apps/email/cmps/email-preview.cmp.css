@@ -1,8 +1,21 @@
 .email-preview p{
 width: 100%;
 }
-
+.email-preview h4{
+    padding: 0.5rem;
+    height: 70px;
+    color: rgb(53, 52, 52);
+}
 .email-desc{
     color: grey;
     font-weight: 400;
+}
+
+
+.unread{
+    background-color: #fff;
+}
+
+.read{
+    background-color: rgb(199, 196, 196);
 }

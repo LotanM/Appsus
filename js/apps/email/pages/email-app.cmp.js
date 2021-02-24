@@ -13,8 +13,8 @@ export default {
             <li class="compose">
                 <router-link to="/email/compose">Compose</router-link>
             </li> 
-            <li class="inbox"> inbox </li> 
-            <li class="sent"> sent </li> 
+            <li class="inbox" @click="isInbox = true"> inbox </li> 
+            <li class="sent" @click="isInbox = false"> sent </li> 
         </ul>
         <router-view :emails="emailsToShow" @remove="removeEmail"/>
     </div>
@@ -24,7 +24,7 @@ export default {
         return {
             emails: [],
             filterBy: null,
-            selectedEmail: null
+            isInbox: true
         }
     },
     methods: {
@@ -43,9 +43,17 @@ export default {
     },
     computed: {
         emailsToShow() {
-            if (!this.filterBy) return this.emails
-            var emailsToShow = this.emails;
-            if (this.filterBy.byName) {
+            if (this.isInbox) {
+                var emailsToShow = this.emails.filter(email => {
+                    return email.to === 'appsus@ca.com'
+                })
+            }
+            else {
+                var emailsToShow = this.emails.filter(email => {
+                    return email.to !== 'appsus@ca.com'
+                })
+            }
+            if (this.filterBy && this.filterBy.byName) {
                 const searchStr = this.filterBy.byName.toLowerCase()
                 emailsToShow = this.emails.filter(email => {
                     return email.subject.toLowerCase().includes(searchStr)
