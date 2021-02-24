@@ -8,6 +8,7 @@ import bookReview from './apps/book/pages/book-review.cmp.js'
 //email routes
 import emailApp from './apps/email/pages/email-app.cmp.js'
 import emailDetails from './apps/email/pages/email-details.cmp.js'
+import emailCompose from './apps/email/cmps/email-compose.cmp.js'
 //note routs
 import noteApp from './apps/note/pages/note-app.cmp.js'
 
@@ -43,6 +44,10 @@ const routes = [
     {
         path: '/email/:emailId',
         component: emailDetails
+    },
+    {
+        path: '/email/compose',
+        component: emailCompose
     }
 ]
 

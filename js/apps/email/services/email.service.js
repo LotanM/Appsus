@@ -42,8 +42,8 @@ function addEmail(emailId, emailsObj) {
 function getEmptyEmail() {
     return {
         id: utilService.makeId(),
-        subject: 'subject', 
-        body: 'body', 
+        subject: 'test subject', 
+        body: 'test body', 
         isRead: false,
         sentAt: 1551133930594
     }
