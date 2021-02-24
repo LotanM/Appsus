@@ -1,12 +1,13 @@
 import { emailService } from '../services/email.service.js'
-import emailFilter from '../cmps/email-filter.cmp'
+import emailFilter from '../cmps/email-filter.cmp.js'
 import emailList from '../cmps/email-list.cmp.js'
-// import emailCompose from '../cmps/email-compose.cmp.js'
+import emailCompose from '../cmps/email-compose.cmp.js'
 
 export default {
     name: 'email-app',
     template: `
     <section class="email-app">
+    <router-link to="/email/compose">Compose new email</router-link>
     <email-filter @filtered="setFilter"/>
         <h1>Email App</h1>
         <email-list :emails="emailsToShow" @remove="removeEmail"/>
@@ -39,7 +40,7 @@ export default {
             if (this.filterBy.byName) {
                 const searchStr = this.filterBy.byName.toLowerCase()
                 emailsToShow = this.emails.filter(email => {
-                    return email.title.toLowerCase().includes(searchStr)
+                    return email.subject.toLowerCase().includes(searchStr)
                 })
             }
             return emailsToShow;
@@ -50,6 +51,7 @@ export default {
     },
     components: {
         emailList,
-        emailFilter
+        emailFilter,
+        emailCompose
     },
 }

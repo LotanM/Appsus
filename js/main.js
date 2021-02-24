@@ -10,7 +10,7 @@ const options = {
         <section>
             <!-- <user-msg /> -->
             <app-header />
-            <router-view />
+            <router-view/>
             <footer><p> &copy; Animalrights 2021</p></footer>
         </section>
     `,
