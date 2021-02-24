@@ -8,9 +8,9 @@ export default {
         <form @submit.prevent="save">
             <label for="email-address">Email Address: </label>
             <input id="email-address" placeholder="Email Address" type="email" >
-            <label for="subject">Email Address: </label>
+            <label for="subject">Subject: </label>
             <input id="subject" placeholder="Subject" type="text" v-model="email.subject">
-            <label for="body" v-model="email.subject">Body: </label>
+            <label for="body">Body: </label>
             <textarea id="body" placeholder="Type in your words" type="text" v-model="email.body"></textarea>
             <button>Save</button>
         </form>
@@ -23,7 +23,7 @@ export default {
     },
     methods: {
         save() {
-            emailService.save(this.email)
+            emailService.addEmail(this.email)
                 .then(email => {
                     console.log('Saved Email:', email);
                     const msg = {
