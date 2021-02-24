@@ -16,7 +16,7 @@ export default {
             <li class="inbox" @click="isInbox = true"> inbox </li> 
             <li class="sent" @click="isInbox = false"> sent </li> 
         </ul>
-        <router-view :emails="emailsToShow" @remove="removeEmail"/>
+        <router-view :emails="emailsToShow" @remove="removeEmail" @save="loadEmails"/>
     </div>
     </section>
     `,
@@ -39,6 +39,7 @@ export default {
             console.log('last remove');
             emailService.remove(emailId)
                 .then(this.loadEmails)
+                .then(this.$router.push('/email'))
         }
     },
     computed: {

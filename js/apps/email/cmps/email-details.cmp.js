@@ -22,9 +22,12 @@ export default {
         }
     },
     methods: {
-        removeEmail(emailId) {
-            emailService.remove(emailId)
-                .then(this.$router.push('/email'))
+        loadEmails() {
+            emailService.query()
+                .then(emails => this.emails = emails)
+        },
+        removeEmail(emailId){
+            this.$emit('remove', emailId);
         }
     },
     created() {

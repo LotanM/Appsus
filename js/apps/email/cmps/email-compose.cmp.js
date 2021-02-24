@@ -6,7 +6,7 @@ export default {
     template: `
     <section v-if="email" class="email-compose">
         <h3>Compose a new email</h3>
-        <form @submit.prevent="save">
+        <form @submit="save(email.id)">
             <label for="email-address">Email Address: </label>
             <input id="email-address" placeholder="Email Address" type="email" >
             <label for="subject">Subject: </label>
@@ -23,7 +23,8 @@ export default {
         }
     },
     methods: {
-        save() {
+        save(emailId) {
+            this.$emit('save', emailId);
             console.log('this.email', this.email)
             emailService.addEmail(this.email)
                 .then(email => {
