@@ -1,6 +1,8 @@
 // import bookPreview from './book-preview.cmp.js'
 
 export default {
+    // \
+    // ppjhoutrh 'emails'
     template: `
     <h1>im a list</h1>
     `

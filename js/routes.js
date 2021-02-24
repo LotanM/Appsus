@@ -6,7 +6,7 @@ import bookApp from './apps/book/pages/book-app.cmp.js'
 import bookDetails from './apps/book/pages/book-details.cmp.js'
 import bookReview from './apps/book/pages/book-review.cmp.js'
 //email routes
-import emailApp from './apps/mail/pages/email-app.cmp.js'
+import emailApp from './apps/email/pages/email-app.cmp.js'
 //note routs
 import noteApp from './apps/note/pages/note-app.cmp.js'
 
