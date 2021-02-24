@@ -11,7 +11,7 @@ export const emailService = {
 
 
 const EMAILS_KEY = 'emails';
-const emailsDB =  _createEmails();
+const emailsDB = _createEmails();
 
 
 function query() {
@@ -25,39 +25,76 @@ function getById(id) {
     return storageService.get(EMAILS_KEY, id)
 }
 
-function addEmail(emailId, emailsObj) {
-    console.log('emailObj', emailsObj)
-    console.log('email id', emailId)
-    storageService.get(EMAILS_KEY, emailId)
-        .then(email => {
-            email.emails = emailsObj
-            return email
-        })
-        .then(email => {
-            console.log('email at the end', email)
-            storageService.put(EMAILS_KEY, email)
-        })
+function addEmail(emailToAdd) {
+    return storageService.post(EMAILS_KEY, emailToAdd)
 }
 
 function getEmptyEmail() {
     return {
         id: utilService.makeId(),
-        subject: 'test subject', 
-        body: 'test body', 
+        subject: 'test subject',
+        body: 'test body',
         isRead: false,
-        sentAt: 1551133930594
+        sentAt: 1551133930594,
+        from: '',
+        to: ''
     }
 }
 
 function _createEmails() {
     let emails = utilService.loadFromStorage(EMAILS_KEY)
     if (!emails || !emails.length) {
-        const emails=[
-            {id: utilService.makeId(), subject: 'puki?', body: 'Pick up!', isRead: false, sentAt: 1151139930694 },
-            {id: utilService.makeId(), subject: 'muki?', body: 'Pick down!', isRead: true, sentAt: 1451133635584 },
-            {id: utilService.makeId(), subject: 'looli?', body: 'Pick left!', isRead: true, sentAt: 1651139330594 },
-            {id: utilService.makeId(), subject: 'shoopi?', body: 'Pick right!', isRead: false, sentAt: 17551133930594 },
-            {id: utilService.makeId(), subject: 'shuni?', body: 'Pick more!', isRead: false, sentAt: 1551193930594 }
+        const emails = [
+            {
+                id: utilService.makeId(),
+                subject: `Tip 3: Move faster with collaboration`,
+                body: `Shared workspaces can help your entire team stay on top of their projects.
+                        How to collaborate in Workona
+                        Open a workspace and click the “Share” button in the top-right. This is where youll invite collaborators and manage sharing permissions for the workspace.
+                        Remember, your tabs are private and will never be shared.`, 
+                isRead: false,
+                sentAt: 1151139930694,
+                from: 'welcome@workona.com',
+                to: 'appsus@ca.com'
+            },
+            {
+                id: utilService.makeId(),
+                subject: 'Appsus, please add me to your LinkedIn network',
+                body: `© 2021 LinkedIn Ireland Unlimited Company, Wilton Plaza, Wilton Place, Dublin 2.
+                        LinkedIn is a registered business name of LinkedIn Ireland Unlimited Company. LinkedIn
+                        and the LinkedIn logo are registered trademarks of LinkedIn.`,
+                isRead: true,
+                sentAt: 1451133635584,
+                from: 'invitations@linkedin.com',
+                to: 'appsus@ca.com'
+            },
+            {
+                id: utilService.makeId(),
+                subject: 'looli?',
+                body: 'Pick left!',
+                isRead: true,
+                sentAt: 1651139330594,
+                from: 'welcome@workona.com',
+                to: 'appsus@ca.com'
+            },
+            {
+                id: utilService.makeId(),
+                subject: 'shoopi?',
+                body: 'Pick right!',
+                isRead: false,
+                sentAt: 17551133930594,
+                from: 'welcome@workona.com',
+                to: 'appsus@ca.com'
+            },
+            {
+                id: utilService.makeId(),
+                subject: 'shuni?',
+                body: 'Pick more!',
+                isRead: false,
+                sentAt: 1551193930594,
+                from: 'welcome@workona.com',
+                to: 'appsus@ca.com'
+            }
         ]
         utilService.saveToStorage(EMAILS_KEY, emails)
     }

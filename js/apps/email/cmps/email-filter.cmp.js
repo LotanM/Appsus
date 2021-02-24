@@ -2,7 +2,7 @@ export default {
     name: 'email-filter',
     template: `
         <section class="email-filter">
-            <label>by Name: </label>
+            <img src="../../../icons/search.png" alt="">
             <input type="text" @input="setFilter" placeholder="Search by Email Name" v-model="filterBy.byName">
         </section>    
     `,

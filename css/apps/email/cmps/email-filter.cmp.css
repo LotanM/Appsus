@@ -1,0 +1,8 @@
+.email-filter{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.email-filter img{
+    height: 30px;
+}

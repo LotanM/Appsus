@@ -42,13 +42,14 @@ const routes = [
         component: emailApp
     },
     {
+        path: '/email/compose',
+        component: emailCompose
+    },
+    {
         path: '/email/:emailId',
         component: emailDetails
     },
-    {
-        path: '/email/compose',
-        component: emailCompose
-    }
+    
 ]
 
 export const myRouter = new VueRouter({ routes })
