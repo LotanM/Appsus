@@ -16,5 +16,4 @@ export default {
         <img class="menu-icon" src="../../icons/menu.svg" alt="">
     </header>
     `,
-    
 }
