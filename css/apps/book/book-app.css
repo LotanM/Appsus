@@ -1,0 +1,15 @@
+@import './cmps/book-filter.cmp.css';
+@import './cmps/book-list.cmp.css';
+@import './cmps/book-preview.cmp.css';
+@import '../book/pages/book-details.cmp.css';
+@import '../book/pages/book-review.cmp.css';
+@import '../book/pages/book-add.cmp.css';
+
+
+
+
+.book-app {
+    /* min-height: 90vh; */
+    background-color: #2ECC71;
+    text-align: center;
+}

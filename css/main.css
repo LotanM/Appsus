@@ -1,7 +1,6 @@
 @import './apps/email/email-app.css';
 @import './cmps/app-header.css';
-@import './apps/email/email-app.css';
-@import './apps/book/pages/book-review.cmp.css';
+@import './apps/book/book-app.css';
 
 * {
     box-sizing: border-box;
@@ -9,6 +8,12 @@
 body {
     background-color: rgb(156, 228, 204);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+h1, h2, h3, h4, h5 {
+    margin: 0;
+    padding: 0;
 }
 
 
@@ -21,4 +26,9 @@ li {
 ul {
     margin: 0;
     padding: 0;
+}
+
+/* BUTTON */
+button {
+    cursor: pointer;
 }

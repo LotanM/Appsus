@@ -4,3 +4,28 @@
 .star-list .star:hover~.star {
     color: black
 }
+
+.review-add {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center;
+    text-align: center; */
+}
+
+.review-add form {
+    width: 300px;
+    /* border: #28ad60 4px solid; */
+    border-radius: 10px;
+}
+
+.review-add button {
+    background-color: #2ECC71;
+    color: white;
+    /* font-size: 30px; */
+    /* width: 40px;    */
+}
+
+textarea {
+    resize: none;
+    margin-left: 50px;
+}

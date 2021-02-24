@@ -1,0 +1,12 @@
+/* FILTER */
+
+.book-filter {
+    display: flex;
+    justify-content: space-around;
+}
+
+.book-filter input {
+    height: 5vh;
+    border-radius: 20px;
+    outline: none;
+}

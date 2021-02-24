@@ -1,5 +1,4 @@
 .app-header {
-    /* margin: 0 auto; */
     background-color: #2ECC71;
     padding: 10px;
     height: 10vh;
@@ -11,4 +10,19 @@
 
 .app-header .menu-icon {
     width: 40px;
+}
+
+.open-dropdown {
+    display: block;
+    width: 300px;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+
+.close-dropdown {
+    display: none;
 }

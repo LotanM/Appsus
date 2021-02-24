@@ -1,0 +1,19 @@
+/* LIST */
+
+.book-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.book-list .delete-btn {
+    border: none;
+    transition: .3s;
+} 
+.book-list .delete-btn:hover {
+    font-weight: bold;
+} 

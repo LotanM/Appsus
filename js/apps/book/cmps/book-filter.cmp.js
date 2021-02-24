@@ -3,7 +3,7 @@
 export default {
     name: 'book-filter',
     template: `
-        <section class="book-filter flex wrap">
+        <section class="book-filter">
             <label>by Name: </label>
             <input type="text" @input="setFilter" placeholder="Search by Book Name" v-model="filterBy.byName">
             <label>by Price range: </label>

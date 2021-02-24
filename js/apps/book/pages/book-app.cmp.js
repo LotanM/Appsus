@@ -12,7 +12,6 @@ export default {
             <book-add></book-add>
             <book-filter @filtered="setFilter"></book-filter>
             <book-list :books="booksToShow" @remove="removeBook"></book-list>
-            <router-link to="/book/edit/">Add a new book</router-link>
         </section>
     `,
     data() {

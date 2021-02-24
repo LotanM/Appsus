@@ -1,0 +1,21 @@
+
+/* PREVIEW */
+
+.book-preview-container {
+    width: 150px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    justify-content: space-between;
+    transition: 0.2s;
+}
+
+.book-preview-container:hover {
+    box-shadow: rgba(0, 0, 0, 0.459) 0px 5px 15px;
+}
+
+.book-preview-container img {
+    border-radius: 5px;
+    width: 100%;
+}
