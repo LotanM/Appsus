@@ -39,14 +39,12 @@ export default {
             console.log('number of start', numberOfStar)
             this.book.reviews['star-rating'] = numberOfStar
             this.numOfStar = numberOfStar;
+            
             for (let i = 1; i <= numberOfStar; i++) {
                 document.querySelector(`.star-${i}`).classList.add('selected')
             }
         },
         submitReview() {
-            console.log('book.reviews[review-text]', this.book.reviews['review-text'])
-            console.log('this.book.reviews[star-rating]', this.book.reviews['star-rating'])
-            console.log('this.book.reviews[full-name]', this.book.reviews['full-name'])
             bookService.addReview(this.book.id, this.book.reviews)
         }
     },

@@ -1,0 +1,6 @@
+.star-list:hover .star, .selected {
+    color: orange;
+}
+.star-list .star:hover~.star {
+    color: black
+}
