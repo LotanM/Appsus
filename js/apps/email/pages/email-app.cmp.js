@@ -29,6 +29,7 @@ export default {
             this.filterBy = filterBy
         },
         removeEmail(emailId) {
+            console.log('last remove');
             emailService.remove(emailId)
                 .then(this.loadEmails)
         }
