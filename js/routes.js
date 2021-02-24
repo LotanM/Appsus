@@ -7,8 +7,8 @@ import bookDetails from './apps/book/pages/book-details.cmp.js'
 import bookReview from './apps/book/pages/book-review.cmp.js'
 //email routes
 import emailApp from './apps/mail/pages/email-app.cmp.js'
-//keep routs
-import keepApp from './apps/keep/pages/keep-app.cmp.js'
+//note routs
+import noteApp from './apps/note/pages/note-app.cmp.js'
 
 
 const routes = [
@@ -33,8 +33,8 @@ const routes = [
         component: aboutPage
     },
     {
-        path: '/keep',
-        component: keepApp
+        path: '/note',
+        component: noteApp
     },
     {
         path: '/email',
