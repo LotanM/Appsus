@@ -2,7 +2,6 @@ import { utilService } from '../../../services/util.service.js'
 import { storageService } from '../../../services/async-storage.service.js'
 
 export const noteService = {
-    // getById,
     query,
     addNote,
     remove,
@@ -16,18 +15,6 @@ export const noteService = {
 const NOTES_KEY = 'notes'
 const notesDB = _createNotes();
 
-
-function save(answer, idx) {
-    console.log('idx', idx)
-    query()
-    .then(notes => {
-        const currNote = notes.cmps[idx];
-            if (currNote.type === 'noteVideo' || currNote.type === 'noteImg') currNote.info.url = answer
-            else if (currNote.type === 'noteTxt') currNote.info.txt = answer
-            else currNote.info.todos = answer
-            utilService.saveToStorage(NOTES_KEY, notes)
-        })
-}
 
 function save(answer, cmpType) {
     var note = null;
@@ -98,6 +85,7 @@ function getEmptyNoteTodo() {
         isPinned: true
     }
 }
+
 function getEmptyNoteVideo() {
     return {
         id: utilService.makeId(),
