@@ -13,13 +13,13 @@ export default {
             <form @submit.prevent="save">
                 <div v-for="(cmp, idx) in notes.cmps">
                     <component :is="type"  :info="cmp.info" @setVal="setAns($event, idx)"></component>
+                </div>
                     <div class="cmp-type-controller"> 
                         <img type="button" src="../../../../icons/txt.png" @click="changeCmpType('noteTxt')">
                         <img type="button" src="../../../../icons/img.png" @click="changeCmpType('noteImg')">
                         <img type="button" src="../../../../icons/todo.png" @click="changeCmpType('noteTodo')">
                         <img type="button" src="../../../../icons/video.png" @click="changeCmpType('noteVideo')">
                     </div>
-                </div>
                 <button>Save</button>
             </form>
             <pre>{{answers}}</pre>
@@ -40,7 +40,6 @@ export default {
                 this.notes = notes
                 this.answers = new Array(this.notes.cmps.length)
             })
-
     },
     methods: {
         changeCmpType(cmpType) {

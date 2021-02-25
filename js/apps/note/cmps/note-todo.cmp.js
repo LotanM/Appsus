@@ -3,9 +3,14 @@ export default {
     template: `
         <section class="note-todo">
             <label>
-        <h1>{{notes.info}}</h1>
-                <input type="text" v-model="val" @change="reportVal" :list="listId" />
-            </label> 
+            <h1>label:{{info.label}}</h1>
+            <ul>
+            <li v-for='(todos, idx) in info.todos'> 
+              {{info.todos[idx].txt}}
+            </li>
+            </ul>
+                <input type="text" v-model="val" @change="reportVal" :list="listId"/>
+            </label>
         </section>
         `,
     props: ["info"],
