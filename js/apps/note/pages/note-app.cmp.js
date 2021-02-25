@@ -23,6 +23,7 @@ export default {
         <div class="curr-note">
             <pre>{{answers}}</pre>
         </div>
+        <pre>{{notes}}</pre>
     </section>
     `,
     data() {
@@ -47,15 +48,19 @@ export default {
             this.currCmp = this.notes.cmps.find(cmp => cmp.type === cmpType)
         },
         setAns(ans, cmpType) {
-            const idx = this.notes.cmps.findIndex(cmp => cmp.type === cmpType)
-            console.log('idx', idx)
-            console.log('Setting the answer: ', ans, 'idx:', idx);
+            const idx = noteService.getCmpIdByType(cmpType)
             this.answers.splice(idx, 1, ans)
-            console.log('this.answers', this.answers)
+
         },
         save() {
-            console.log('Saving..', this.answers);
+            const idx = noteService.getCmpIdByType(this.currCmp.type)
+            noteService.save(this.answers[idx], idx)
         }
+    },
+    computed: {
+        renderedAnswers() {
+
+        },
     },
     components: {
         noteTodo,

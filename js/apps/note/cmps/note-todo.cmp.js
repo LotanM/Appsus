@@ -7,9 +7,8 @@ export default {
             <ul>
             <li v-for='(todos, idx) in info.todos' :class="{done: todos.isChecked}" @click="updateDone(idx)"> 
                 <p>{{info.todos[idx].txt}}</p>
-            </li>
             </ul>
-                <input type="text" v-model="val" @change="reportVal" :list="listId"/>
+                <input type="text" v-model="val" @change="reportVal" :list="listId" placeholder="Enter comma seperated list"/>
             </label>
         </section>
         `,
