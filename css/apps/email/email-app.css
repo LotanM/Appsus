@@ -19,14 +19,15 @@
     display: flex;
     flex-direction: column;
     background-color: none;
-    /* width:fit-content; */
-    margin-right: 2rem;
+    margin-right: 1rem;
+    width: 200px;
 }
 
 .email-app .side-menu li {
     display: flex;
     align-items: center;
-    margin-bottom: 2px;
+
+    height: 30px;
     font-size: 15px;
     padding: 5px;
     border-radius: 10px 50px 50px 10px;
@@ -39,21 +40,28 @@
     background-color: white;
     border-radius: 50px;
     margin-bottom: 20px;
+    margin-top: 20px;
     width: 100px;
 }
+
 .email-app .side-menu .compose::before {
     content: url('../../../icons/add.svg');
+   margin-top: 5px;
 }
 .email-app .side-menu .inbox::before {
     content: url('../../../icons/inbox.svg');
+    margin-top: 5px;
+    margin-right: 10px;
 }
 .email-app .side-menu .sent::before {
     content: url('../../../icons/send.svg');
+    margin-top: 5px;
+    margin-right: 10px;
 }
 
 .email-app .side-menu li:hover:not(:first-child) {
     background-color: #ffffff9d;
-   border-radius: 10px 50px 50px 10px;
+    border-radius: 10px 50px 50px 10px;
 }
 
 .email-app a {

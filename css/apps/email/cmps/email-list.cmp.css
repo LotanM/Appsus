@@ -1,5 +1,8 @@
 .email-list{
     display: flex;
     flex-direction: column;
+}
+
+.email-list-container {
     width: 100%;
 }

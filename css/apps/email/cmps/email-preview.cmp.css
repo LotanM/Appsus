@@ -1,23 +1,37 @@
-.email-preview {
-width: 100%;
-}
+
 
 .email-preview h4{
-    padding: 0.5rem;
-    height: 70px;
+    display: flex;
+    height: 50px;
+    align-items: center;
+    margin-left: 20px;
     color: rgb(53, 52, 52);
 }
 
 .email-desc{
     color: grey;
     font-weight: 400;
+    margin-left: 10px;
 }
 
 
 .unread{
-    background-color: #fff;
+    background-color: #ffffffb7;
 }
 
 .read{
-    background-color: rgb(199, 196, 196);
+    background-color: #ffffff77;
+}
+
+.email-preview {
+    border-bottom: solid grey 1px;
+}
+.email-preview:hover {
+    z-index: 3;
+    margin: 0;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.email-preview {
+    height: 50px;
 }
