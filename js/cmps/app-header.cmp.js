@@ -28,6 +28,7 @@ export default {
         toggleClass() {
             if (this.dropDownClass === 'close-dropdown') this.dropDownClass = 'open-dropdown'
             else this.dropDownClass = 'close-dropdown'
+            
         }
     }
 }
