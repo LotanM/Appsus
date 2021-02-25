@@ -11,19 +11,18 @@ export default {
         <section v-if="notes" class="note-app">
             <h2>{{notes.title}}</h2>
             <form @submit.prevent="save">
-                <div v-for="(cmp, idx) in notes.cmps">
-                    <component :is="type"  :info="cmp.info" @setVal="setAns($event, idx)"></component>
-                    <div class="cmp-type-controller"> 
-                        <img type="button" src="../../../../icons/txt.png" @click="changeCmpType('noteTxt')">
-                        <img type="button" src="../../../../icons/img.png" @click="changeCmpType('noteImg')">
-                        <img type="button" src="../../../../icons/todo.png" @click="changeCmpType('noteTodo')">
-                        <img type="button" src="../../../../icons/video.png" @click="changeCmpType('noteVideo')">
-                    </div>
+                <component :is="currCmp.type" :info="currCmp.info" @setVal="setAns($event, currCmp.type)"></component>
+                <div class="cmp-type-controller"> 
+                    <img type="button" src="../../../../icons/txt.png" @click="changeCmp('noteTxt')">
+                    <img type="button" src="../../../../icons/img.png" @click="changeCmp('noteImg')">
+                    <img type="button" src="../../../../icons/todo.png" @click="changeCmp('noteTodo')">
+                    <img type="button" src="../../../../icons/video.png" @click="changeCmp('noteVideo')">
                 </div>
-                <button>Save</button>
-            </form>
-            <pre>{{answers}}</pre>
-        </section>
+            </div>
+            <button>Save</button>
+        </form>
+        <pre>{{answers}}</pre>
+    </section>
     `,
     data() {
         return {
@@ -31,7 +30,7 @@ export default {
             label: '',
             notes: null,
             answers: [],
-            type: 'noteTxt'
+            currCmp: null
         }
     },
     created() {
@@ -39,15 +38,16 @@ export default {
             .then(notes => {
                 this.notes = notes
                 this.answers = new Array(this.notes.cmps.length)
+                this.currCmp = notes.cmps[0]
             })
-
     },
     methods: {
-        changeCmpType(cmpType) {
-            console.log('cmpType', cmpType)
-            this.type = cmpType
+        changeCmp(cmpType) {
+            this.currCmp = this.notes.cmps.find(cmp => cmp.type === cmpType)
         },
-        setAns(ans, idx) {
+        setAns(ans, cmpType) {
+            const idx = this.notes.cmps.findIndex(cmp => cmp.type === cmpType)
+            console.log('idx', idx)
             console.log('Setting the answer: ', ans, 'idx:', idx);
             this.answers.splice(idx, 1, ans)
             console.log('this.answers', this.answers)

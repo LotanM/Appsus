@@ -1,4 +1,5 @@
 export default {
+    name:"note-txt",
     template: `
         <section class="note-txt">
             <!-- <datalist :id="listId">
@@ -6,7 +7,7 @@ export default {
             </datalist> -->
             <label>
                 <!-- {{info.label}} -->
-                <input type="text" v-model="val" @change="reportVal" :list="listId" />
+                <input type="text" v-model="val" @change="reportVal" :list="listId" placeholder="type in some text" />
             </label>  
         </section>
         `,
