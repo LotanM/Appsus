@@ -1,7 +1,7 @@
 export default {
     name:"note-txt",
     template: `
-        <section class="note-txt">
+        <section>
             <input type="text" v-model="val" @change="reportVal" :list="listId" placeholder="type in some text" />  
         </section>
         `,

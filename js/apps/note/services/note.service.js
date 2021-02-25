@@ -19,15 +19,15 @@ const notesDB = _createNotes();
 
 function save(answer, cmpType) {
     var note = null;
-    if (cmpType === 'noteVideo') {
+    if (cmpType === 'note-video') {
         note = getEmptyNoteVideo();
         note.info.url = answer
     }
-    else if (cmpType === 'noteImg') {
+    else if (cmpType === 'note-img') {
         note = getEmptyNoteImg();
         note.info.url = answer
     }
-    else if (cmpType === 'noteTxt') {
+    else if (cmpType === 'note-txt') {
         note = getEmptyNoteTxt();
         note.info.txt = answer
     }
@@ -60,7 +60,7 @@ function remove(noteId) { //delete note, returns Promise
 function getEmptyNoteTxt() {
     return {
         id: utilService.makeId(),
-        type: "noteTxt",
+        type: "note-txt",
         info: {
             txt: ''
         },
@@ -74,7 +74,7 @@ function getEmptyNoteTxt() {
 function getEmptyNoteTodo() {
     return {
         id: utilService.makeId(),
-        type: "noteTodo",
+        type: "note-todo",
         info: {
             todos: [
                 { txt: "", doneAt: null, isChecked: false },
@@ -89,7 +89,7 @@ function getEmptyNoteTodo() {
 function getEmptyNoteVideo() {
     return {
         id: utilService.makeId(),
-        type: "noteVideo",
+        type: "note-video",
         info: {
             url: "",
             title: "my video"
@@ -103,7 +103,7 @@ function getEmptyNoteVideo() {
 
 function getEmptyNoteImg() {
     return {
-        type: "noteImg",
+        type: "note-img",
         info: {
             src: "",
             title: "my image"
@@ -119,13 +119,13 @@ function getEmptyNoteImg() {
 function _createNotes() {
     let notes = utilService.loadFromStorage(NOTES_KEY)
     console.log('notes', notes)
-    if (!notes.cmps || !notes.cmps.length) {
+    if (!notes || !notes.cmps.length) {
         notes =
         {
             title: 'Awesome Notes',
             cmps: [
                 {
-                    type: "noteTxt",
+                    type: "note-txt",
                     info: {
                         txt: "Fullstack Me Baby!"
                     },
@@ -135,7 +135,7 @@ function _createNotes() {
                     isPinned: true
                 },
                 {
-                    type: "noteTodo",
+                    type: "note-todo",
                     info: {
                         todos: [
                             { txt: "Do that", doneAt: null, isChecked: false },
@@ -148,7 +148,7 @@ function _createNotes() {
                     isPinned: true
                 },
                 {
-                    type: "noteImg",
+                    type: "note-img",
                     info: {
                         url: "http://some-img/me",
                         title: "my image"
@@ -159,7 +159,7 @@ function _createNotes() {
                     isPinned: true
                 },
                 {
-                    type: "noteVideo",
+                    type: "note-video",
                     info: {
                         url: "http://some-video/me",
                         title: "my video"
