@@ -9,7 +9,11 @@
 
 
 .book-app {
-    /* min-height: 90vh; */
     background-color: #2ECC71;
     text-align: center;
+    height: 100%;
+}
+
+.book-app >*:not(:last-child) {
+    /* display: flex; */
 }

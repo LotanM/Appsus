@@ -4,20 +4,22 @@
 @import './cmps/email-preview.cmp.css';
 
 
-
 .email-app {
-    margin: 0 10px
+    height: 100%;
+    background-color: coral;
 }
-
+.email-app >*{
+    margin: 0 20px;
+}
 .email-app .main {
     display: flex;
 }
 
-.email-app ul {
+.email-app .side-menu {
     display: flex;
     flex-direction: column;
     background-color: none;
-    width:fit-content;
+    /* width:fit-content; */
     margin-right: 2rem;
 }
 

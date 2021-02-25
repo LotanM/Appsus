@@ -1,11 +1,5 @@
-.email-list p{
-    width: 100vw;
-}
-
-.email-list li{
-    border-bottom: 1px grey solid;
-}
-
-.email-list ul{
+.email-list{
     display: flex;
+    flex-direction: column;
+    width: 100%;
 }

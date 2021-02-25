@@ -1,12 +1,18 @@
 /* FILTER */
 
 .book-filter {
-    display: flex;
-    justify-content: space-around;
+    display: inline;
 }
 
 .book-filter input {
-    height: 5vh;
-    border-radius: 20px;
+    height: 4vh;
+    border-radius: 10px;
     outline: none;
+    text-align: center;
+}
+.book-filter .num-input{
+    width: 60px
+}
+.book-filter .txt-input{
+    width: 380px
 }

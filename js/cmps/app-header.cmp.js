@@ -3,29 +3,32 @@ export default {
     template: `
     <header class="app-header">
         <div class="logo">
-            <h1>Appsus</h1>
+            <router-link to="/">
+            <img class="logo-icon" src="../icons/logo-final.svg" alt="">
+        </router-link>
+        <h1>Appsus</h1>
         </div>
-        <nav>
-            <router-link active-class="active-link" to="/" exact>Home</router-link> |
-        </nav>
-
-        <img class="menu-icon" src="../../icons/menu.svg" :class="toggleClass" @click="isMenuOpen=!isMenuOpen">
-        <div class="dropdown-container">
-            <router-link to="/book">Books</router-link>
-            <router-link to="/note">note</router-link>
-            <router-link to="/email">eMail</router-link>
-            <router-link to="/about">About</router-link>
+        <div class="menu-container">
+            <img class="menu-icon" src="../../icons/menu.svg" @click="toggleClass">
+            <div class="dropdown-container close-dropdown" :class="isOpen = !isOpen">
+                <router-link to="/book"><img src="../../icons/book.svg" alt=""></router-link>
+                <router-link to="/note"><img src="../../icons/note.svg" alt=""></router-link>
+                <router-link to="/email"><img src="../../icons/mail.svg" alt=""></router-link>
+                <router-link to="/about"><img src="../../icons/about.svg" alt=""></router-link>
+            </div>
         </div>
     </header>
     `,
     data(){
         return {
-            isMenuOpen: false
+            isOpen: false
         }
     },
     methods: {
         toggleClass() {
-            return this.isMenuOpen ? 'open-dropdown' : 'close-dropdown'
+            this.isOpen = !isOpen
+            console.log('toggleClass:')
+            return this.isOpen ? 'open-dropdown' : 'close-dropdown'
         }
     }
 }

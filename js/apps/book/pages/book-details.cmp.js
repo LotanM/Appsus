@@ -6,7 +6,6 @@ export default {
     name: 'book-details',
     template: `
     <section v-if="book" class="book-details">
-        <router-link to="/book">X</router-link>
         <img v-bind:src="book.thumbnail" alt="" srcset="">
         <div class="book-details-container">
             <router-link to="/book"><button class=back-btn>↵</button></router-link>

@@ -6,7 +6,7 @@ export default {
     template: `
         <section class="book-preview">
             <img v-bind:src="book.thumbnail" alt="" srcset="">
-            <p>Title: {{book.title}}</p>
+            <p>{{book.title}}</p>
         </section>
         `,
     data() {

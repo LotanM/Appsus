@@ -7,11 +7,11 @@ const options = {
     el: '#app',
     router: myRouter,
     template: `
-        <section>
+        <section class="main-app">
             <user-msg />
             <app-header />
             <router-view/>
-            <footer><p> &copy; Animalrights 2021</p></footer>
+            <footer><a href="https://aldf.org/article/laws-that-protect-animals/"> &copy; Animalrights 2021</a></footer>
         </section>
     `,
     components:{

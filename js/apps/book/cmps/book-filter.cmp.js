@@ -4,11 +4,12 @@ export default {
     name: 'book-filter',
     template: `
         <section class="book-filter">
-            <label>by Name: </label>
-            <input type="text" @input="setFilter" placeholder="Search by Book Name" v-model="filterBy.byName">
-            <label>by Price range: </label>
-            <input type="number" @input="setFilter" placeholder="From Price" v-model.number="filterBy.fromPrice">
-            <input type="number" @input="setFilter" placeholder="To Price" v-model.number="filterBy.toPrice">
+            <!-- <label>by Name: </label> -->
+            <input class="txt-input" type="text" @input="setFilter" placeholder="Search by Book Name" v-model="filterBy.byName">
+            <label>From</label>
+            <input class="num-input" type="number" @input="setFilter" placeholder="price" v-model.number="filterBy.fromPrice">
+            <label>To</label>
+            <input class="num-input" type="number" @input="setFilter" placeholder="price" v-model.number="filterBy.toPrice">
         </section>    
     `,
     data(){

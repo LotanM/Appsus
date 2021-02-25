@@ -1,10 +1,15 @@
 
 /* PREVIEW */
 
+.book-preview {
+    text-transform: capitalize;
+}
+
 .book-preview-container {
     width: 150px;
-    height: 300px;
+    height: 270px;
     display: flex;
+    font-size: 0.9rem;
     flex-direction: column;
     margin: 10px;
     justify-content: space-between;

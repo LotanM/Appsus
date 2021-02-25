@@ -5,7 +5,7 @@ export default {
     template: `
     <section class="book-add">
         <h1>Add book from Gogle Books</h1>
-        <input type="text" placeholder="search by book name or author" @input="updateData" v-model="searchStr">
+        <input type="text" placeholder="by book name/author" @input="updateData" v-model="searchStr">
         <ul v-if="searchResults" class="results-list">
             <li v-for="(searchResult, idx) in searchResults" :key="idx" class="results-list-container" >
                 <h4>{{searchResult}}</h4>

@@ -4,24 +4,24 @@ export default {
     name: 'book-review',
     template: `
     <section v-if="book" class="book-review">
-        <h1>Write a review: {{book.id}}</h1>
+        <h2>Write a review about: <h1 class="capitalize">{{book.title}}</h1> </h2>
         <form @submit.prevent="submitReview">
             <label for="full-name" >Full Name: </label>
             <input id="full-name" placeholder="full name" type="text" v-model="book.reviews['full-name']">
             <label for="review-text" >Review: </label>
-            <textarea id="review-text" placeholder="place your review" type="text" v-model="book.reviews['review-text']"></textarea>
+            <textarea rows="12" id="review-text" placeholder="place your review" type="text" v-model="book.reviews['review-text']"></textarea>
+            <span class="rate-with-stars">
+                <h5>Rate this book</h5>
+                <ol class="star-list">
+                    <span class="star star-1 fa fa-star" @click="updateStarCount(1)"></span>
+                    <span class="star star-2 fa fa-star" @click="updateStarCount(2)"></span>
+                    <span class="star star-3 fa fa-star" @click="updateStarCount(3)"></span>
+                    <span class="star star-4 fa fa-star" @click="updateStarCount(4)"></span>
+                    <span class="star star-5 fa fa-star" @click="updateStarCount(5)"></span>
+                </ol>
+            </span>
             <button>Submit</button>
         </form>
-        <span class="rate-with-stars">
-            <h5>Rate this book</h5>
-            <ol class="star-list">
-                <span class="star star-1 fa fa-star" @click="updateStarCount(1)"></span>
-                <span class="star star-2 fa fa-star" @click="updateStarCount(2)"></span>
-                <span class="star star-3 fa fa-star" @click="updateStarCount(3)"></span>
-                <span class="star star-4 fa fa-star" @click="updateStarCount(4)"></span>
-                <span class="star star-5 fa fa-star" @click="updateStarCount(5)"></span>
-            </ol>
-        </span>
 
     </section>
     `,

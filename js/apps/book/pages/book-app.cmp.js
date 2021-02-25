@@ -9,8 +9,8 @@ export default {
     name: 'book-app',
     template: `
         <section class="book-app">
-            <book-add></book-add>
-            <book-filter @filtered="setFilter"></book-filter>
+            <book-filter @filtered="setFilter"/>
+            <book-add/>
             <book-list :books="booksToShow" @remove="removeBook"></book-list>
         </section>
     `,
