@@ -40,6 +40,10 @@
 }
 
 
+.close-dropdown {
+    display: none;
+}
+
 /* LOGO */
 
 .app-header .logo >* {

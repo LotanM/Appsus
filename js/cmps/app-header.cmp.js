@@ -9,8 +9,8 @@ export default {
         <h1>Appsus</h1>
         </div>
         <div class="menu-container">
-            <img class="menu-icon" src="../../icons/menu.svg">
-            <div class="dropdown-container">
+            <img class="menu-icon" src="../../icons/menu.svg" @click="toggleClass" >
+            <div class="dropdown-container" :class="dropDownClass">
                 <router-link to="/book"><img src="../../icons/book.svg" alt=""></router-link>
                 <router-link to="/note"><img src="../../icons/note.svg" alt=""></router-link>
                 <router-link to="/email"><img src="../../icons/mail.svg" alt=""></router-link>
@@ -21,14 +21,13 @@ export default {
     `,
     data(){
         return {
-            isOpen: false
+            dropDownClass: 'close-dropdown'
         }
     },
     methods: {
         toggleClass() {
-            // this.isOpen = !isOpen
-            console.log('toggleClass:')
-            return this.isOpen ? 'open-dropdown' : 'close-dropdown'
+            if (this.dropDownClass === 'close-dropdown') this.dropDownClass = 'open-dropdown'
+            else this.dropDownClass = 'close-dropdown'
         }
     }
 }
