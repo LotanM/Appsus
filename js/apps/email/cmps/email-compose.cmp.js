@@ -6,11 +6,7 @@ export default {
     template: `
     <section v-if="email" class="email-compose">
         <h3>Compose a new email</h3>
-<<<<<<< HEAD
-        <form @submit.prevent="save(email.id)">
-=======
         <form @submit.prevent.stop="save(email.id)">
->>>>>>> e29f9d239a7450b06927ff7a7685dcaa24ea704e
             <label for="email-address">Email Address: </label>
             <input id="email-address" placeholder="Email Address" type="email" >
             <label for="subject">Subject: </label>
