@@ -1,9 +1,8 @@
 export default {
     name:"note-video",
     template: `
-        <section class="note-video">
-            <!-- <input type="text" v-model="val" @change="reportVal" :list="listId" placeholder="place video url" />   -->
-            <h1>managing video url</h1>
+        <section>
+            <input type="text" v-model="val" @change="reportVal" :list="listId" placeholder="place video url" />  
         </section>
         `,
     props: ["info"],

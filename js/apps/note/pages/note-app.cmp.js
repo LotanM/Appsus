@@ -1,7 +1,8 @@
 import noteTxt from '../cmps/note-txt.cmp.js'
 import noteTodo from '../cmps/note-todo.cmp.js'
-// import noteImg from '../cmps/note-img.cmp.js'
-// import noteVideo from '../cmps/note-video.cmp.js'
+import noteImg from '../cmps/note-img.cmp.js'
+import noteVideo from '../cmps/note-video.cmp.js'
+// import notesDisplay from '../cmps/notes-display.cmp.js'
 import { noteService } from '../services/note.service.js'
 
 export default {
@@ -11,10 +12,10 @@ export default {
             <form @submit.prevent="save" class="note-compose-container">
                 <component :is="currCmp.type" :info="currCmp.info" @setVal="setAns($event)"></component>
                 <div class="cmp-type-controller"> 
-                    <img type="button" src="../../../../icons/txt.png" @click="changeCmp('noteTxt')">
-                    <img type="button" src="../../../../icons/img.png" @click="changeCmp('noteImg')">
-                    <img type="button" src="../../../../icons/todo.png" @click="changeCmp('noteTodo')">
-                    <img type="button" src="../../../../icons/video.png" @click="changeCmp('noteVideo')">
+                    <img type="button" src="../../../../icons/txt.png" @click="changeCmp('note-txt')">
+                    <img type="button" src="../../../../icons/img.png" @click="changeCmp('note-img')">
+                    <img type="button" src="../../../../icons/todo.png" @click="changeCmp('note-todo')">
+                    <img type="button" src="../../../../icons/video.png" @click="changeCmp('note-video')">
                 </div>
             </div>
             <button>Save</button>
@@ -23,16 +24,14 @@ export default {
             <pre>{{answer}}</pre>
         </div>
         <div class="notes-display-container">
-            <div class="txt-type" v-for="note in notes.cmps">
-                <p>{{note.info.txt}}</p>
+            <div :class="note.type" class="note-card" v-for="(note, idx) in notes.cmps">
+                <!-- <notes-display /> -->
             </div>
         </div>
     </section>
     `,
     data() {
         return {
-            txt: '',
-            label: '',
             notes: null,
             answer: '',
             currCmp: null
@@ -47,6 +46,7 @@ export default {
     },
     methods: {
         changeCmp(cmpType) {
+            console.log(cmpType)
             this.currCmp = this.notes.cmps.find(cmp => cmp.type === cmpType)
         },
         setAns(ans) {
@@ -59,10 +59,16 @@ export default {
                 .then(notes => this.notes = notes)
         }
     },
+    computed: {
+        changeClass(note) {
+            return note.type
+        }
+    },
     components: {
         noteTodo,
         noteTxt,
-        // noteImg,
-        // noteVideo
+        noteImg,
+        noteVideo,
+        // notesDisplay
     }
 }

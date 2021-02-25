@@ -1,19 +1,28 @@
-.cmp-type-controller img{
- width: 40px;
- height: 40px;
+.cmp-type-controller img {
+    width: 40px;
+    height: 40px;
 }
 
 .note-app {
-    margin: 0 auto ;
+    margin: 0 auto;
+    height: 100%;
+}
+
+.notes-display-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
 }
 
 .note-compose-container {
     display: flex;
     align-items: center;
-    /* justify-content: space-between; */
+    justify-content: space-between;
     border: 1px solid grey;
-    width: 500px;
+    width: 600px;
     padding: 10px;
+    margin:20px auto;
 }
 
 .note-compose-container input {
@@ -22,47 +31,55 @@
     width: 250px;
 }
 
+.note-app .note-card {
+    margin: 5px;
+}
+
 .done {
     text-decoration: line-through;
 }
 
 .not-done {
-    text-decoration:none;
+    text-decoration: none;
 }
 
+.note-app .note-card img {
+    height: -webkit-fill-available;
+    width: 100%;
+}
 
 /* note */
 
-.note-app .note-card .txt-type{
-    height: 250px;
-    width: 200px;
-    border: 3px solid rgb(148, 148, 11);
+.note-app .note-txt {
+    height: 200px;
+    width: 150px;
     background-color: rgb(233, 173, 62);
     color: rgb(39, 39, 39);
+    border: 3px solid rgb(148, 148, 11);
     text-align: center;
 }
 
-.note-app .note-card .todo-type{
-    height: 250px;
-    width: 200px;
+.note-app .note-todo {
+    height: 200px;
+    width: 150px;
     border: 3px solid rgb(39, 23, 97);
     background-color: rgb(68, 115, 168);
     color: rgb(39, 39, 39);
     text-align: center;
 }
 
-.note-app .note-card .video-type{
-    height: 200px;
-    width: 300px;
+.note-app .note-video {
+    height: 150px;
+    width: 250px;
     border: 3px solid rgb(107, 107, 102);
     background-color: rgb(160, 159, 157);
     color: rgb(39, 39, 39);
     text-align: center;
 }
 
-.note-app .note-card .img-type{
-    height: 200px;
-    width: 300px;
+.note-app .note-img {
+    height: 150px;
+    width: 250px;
     border: 3px solid rgb(107, 107, 102);
     background-color: rgb(160, 159, 157);
     color: rgb(39, 39, 39);
