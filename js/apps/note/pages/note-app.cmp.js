@@ -4,7 +4,6 @@ import noteTodo from '../cmps/note-todo.cmp.js'
 // import noteVideo from '../cmps/note-video.cmp.js'
 import { noteService } from '../services/note.service.js'
 
-
 export default {
     name: 'note-app',
     template: `
@@ -50,7 +49,6 @@ export default {
         setAns(ans, cmpType) {
             const idx = noteService.getCmpIdByType(cmpType)
             this.answers.splice(idx, 1, ans)
-
         },
         save() {
             const idx = noteService.getCmpIdByType(this.currCmp.type)

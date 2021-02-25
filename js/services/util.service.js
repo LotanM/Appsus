@@ -6,7 +6,6 @@ export const utilService = {
 
 function saveToStorage(key, value) {
     localStorage.setItem(key, JSON.stringify(value) || null);
-    console.log('updated notes', value)
 }
 
 function loadFromStorage(key) {

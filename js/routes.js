@@ -10,7 +10,8 @@ import emailApp from './apps/email/pages/email-app.cmp.js'
 import emailDetails from './apps/email/cmps/email-details.cmp.js'
 import emailCompose from './apps/email/cmps/email-compose.cmp.js'
 //note routs
-import noteApp from './apps/note/pages/note-app.cmp.js'
+// import noteApp from './apps/note/pages/note-app.cmp.js'
+import noteApp from './apps/note/pages/note-app.cmp.copy.js'
 import emailList from './apps/email/cmps/email-list.cmp.js'
 
 const routes = [

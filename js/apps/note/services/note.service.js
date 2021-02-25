@@ -16,15 +16,13 @@ export const noteService = {
 
 const NOTES_KEY = 'notes'
 const notesDB = _createNotes();
-function getById() {
-    return Promise.resolve(notesDB);
-}
+
 
 function save(answer, idx) {
     console.log('idx', idx)
-    getById()
-        .then(notes => {
-            const currNote = notes.cmps[idx];
+    query()
+    .then(notes => {
+        const currNote = notes.cmps[idx];
             if (currNote.type === 'noteVideo' || currNote.type === 'noteImg') currNote.info.url = answer
             else if (currNote.type === 'noteTxt') currNote.info.txt = answer
             else currNote.info.todos = answer

@@ -3,10 +3,6 @@
  height: 40px;
 }
 
-/* .cmp-type-controller {
-
-} */
-
 .note-app {
     margin: 0 auto ;
 }
@@ -14,7 +10,7 @@
 .note-compose-container {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     border: 1px solid grey;
     width: 500px;
     padding: 10px;
@@ -22,6 +18,8 @@
 
 .note-compose-container input {
     border: none;
+    height: 30px;
+    width: 250px;
 }
 
 .done {
@@ -30,4 +28,43 @@
 
 .not-done {
     text-decoration:none;
+}
+
+
+/* note */
+
+.note-app .note-card .txt-type{
+    height: 250px;
+    width: 200px;
+    border: 3px solid rgb(148, 148, 11);
+    background-color: rgb(233, 173, 62);
+    color: rgb(39, 39, 39);
+    text-align: center;
+}
+
+.note-app .note-card .todo-type{
+    height: 250px;
+    width: 200px;
+    border: 3px solid rgb(39, 23, 97);
+    background-color: rgb(68, 115, 168);
+    color: rgb(39, 39, 39);
+    text-align: center;
+}
+
+.note-app .note-card .video-type{
+    height: 200px;
+    width: 300px;
+    border: 3px solid rgb(107, 107, 102);
+    background-color: rgb(160, 159, 157);
+    color: rgb(39, 39, 39);
+    text-align: center;
+}
+
+.note-app .note-card .img-type{
+    height: 200px;
+    width: 300px;
+    border: 3px solid rgb(107, 107, 102);
+    background-color: rgb(160, 159, 157);
+    color: rgb(39, 39, 39);
+    text-align: center;
 }
