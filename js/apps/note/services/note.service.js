@@ -36,6 +36,13 @@ var notes =
         //             { txt: "Do this", doneAt: 187111111 }
         //         ]
         //     }
+        // },
+        // {
+        //     type: "noteVideo",
+        //     info: {
+        //         url: "http://some-video/me",
+        //         title: "Me playing Mi"
+        //     }
         // }
     ]
 }
