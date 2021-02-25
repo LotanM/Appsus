@@ -18,12 +18,12 @@ var notes =
             }
         },
         {
-            type: "noteTodos",
+            type: "noteTodo",
             info: {
                 label: "How was it:",
                 todos: [
-                    { txt: "Do that", doneAt: null },
-                    { txt: "Do this", doneAt: 187111111 }
+                    { txt: "Do that", doneAt: null, isChecked:false},
+                    { txt: "Do this", doneAt: 187111111, isChecked:false}
                 ]
             }
         }

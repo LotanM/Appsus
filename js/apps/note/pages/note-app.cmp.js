@@ -8,9 +8,8 @@ import { noteService } from '../services/note.service.js'
 export default {
     name: 'note-app',
     template: `
-        <section v-if="notes" class="note-app">
-            <h2>{{notes.title}}</h2>
-            <form @submit.prevent="save">
+        <section v-if="currCmp" class="note-app">
+            <form @submit.prevent="save" class="note-compose-container">
                 <component :is="currCmp.type" :info="currCmp.info" @setVal="setAns($event, currCmp.type)"></component>
                 <div class="cmp-type-controller"> 
                     <img type="button" src="../../../../icons/txt.png" @click="changeCmp('noteTxt')">
@@ -21,7 +20,9 @@ export default {
             </div>
             <button>Save</button>
         </form>
-        <pre>{{answers}}</pre>
+        <div class="curr-note">
+            <pre>{{answers}}</pre>
+        </div>
     </section>
     `,
     data() {

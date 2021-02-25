@@ -1,3 +1,33 @@
 .cmp-type-controller img{
- width: 50px;
+ width: 40px;
+ height: 40px;
+}
+
+.cmp-type-controller {
+
+}
+
+.note-app {
+    margin: 0 auto ;
+}
+
+.note-compose-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid grey;
+    width: 500px;
+    padding: 10px;
+}
+
+.note-compose-container input {
+    border: none;
+}
+
+.done {
+    text-decoration: line-through;
+}
+
+.not-done {
+    text-decoration:none;
 }
