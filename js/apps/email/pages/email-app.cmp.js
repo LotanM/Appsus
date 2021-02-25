@@ -1,5 +1,5 @@
 import { emailService } from '../services/email.service.js'
-import emailFilter from '../cmps/email-filter.cmp.js'
+
 import emailList from '../cmps/email-list.cmp.js'
 
 
@@ -7,7 +7,6 @@ export default {
     name: 'email-app',
     template: `
     <section class="email-app">
-    <email-filter @filtered="setFilter"/>
     <div class="main">
         <ul class="side-menu">
             <li class="compose">
@@ -16,7 +15,7 @@ export default {
             <li class="inbox" @click="isInbox = true"> inbox </li> 
             <li class="sent" @click="isInbox = false"> sent </li> 
         </ul>
-        <router-view :emails="emailsToShow" @remove="removeEmail" @save="loadEmails"/>
+        <router-view :emails="emailsToShow" @remove="removeEmail" @save="loadEmails" @filtered="setFilter"/>
     </div>
     </section>
     `,
@@ -29,6 +28,7 @@ export default {
     },
     methods: {
         loadEmails() {
+            console.log('loading emails')
             emailService.query()
                 .then(emails => this.emails = emails)
         },
@@ -68,6 +68,5 @@ export default {
     },
     components: {
         emailList,
-        emailFilter,
     },
 }
