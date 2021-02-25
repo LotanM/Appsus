@@ -3,8 +3,15 @@ import { storageService } from '../../../services/async-storage.service.js'
 
 export const noteService = {
     getById,
+    query,
+    addNote,
+    remove,
+    save,
+    getEmptyNoteTxt,
+    getEmptyNoteTodo,
+    getEmptyNoteVideo,
+    getEmptyNoteImg,
     getCmpIdByType,
-    save
 }
 
 const NOTES_KEY = 'notes'
@@ -24,14 +31,86 @@ function save(answer, idx) {
             utilService.saveToStorage(NOTES_KEY, notes)
         })
 }
-function getCmpIdByType(cmpType) {
-    for (let i = 0; i < notesDB.cmps.length; i++) {
-        if (notesDB.cmps[i].type === cmpType) {
-            console.log('i at 34', i)
-            return i;
-        }
+
+
+function addNote(noteToAdd) { // save, returns Promise
+    return storageService.post(NOTES_KEY, noteToAdd)
+}
+
+function query() { //get all notes, returns Promise
+    return storageService.query(NOTES_KEY)
+}
+
+function remove(noteId) { //delete note, returns Promise
+    return storageService.remove(NOTES_KEY, noteId)
+}
+function getById(id) { //get note by id, returns Promise
+    return storageService.get(NOTES_KEY, id)
+}
+
+
+// Empty notes:
+
+function getEmptyNoteTxt() {
+    return {
+        id: utilService.makeId(),
+        type: "noteTxt",
+        info: {
+            txt: ""
+        },
+        style: {
+            backgroundColor: "#00d"
+        },
+        isPinned: true
     }
 }
+
+function getEmptyNoteTodo() {
+    return {
+        id: utilService.makeId(),
+        type: "noteTodo",
+        info: {
+            todos: [
+                { txt: "", doneAt: null, isChecked: false },
+            ]
+        },
+        style: {
+            backgroundColor: "#00d"
+        },
+        isPinned: true
+    }
+}
+function getEmptyNoteVideo() {
+    return {
+        id: utilService.makeId(),
+        type: "noteVideo",
+        info: {
+            url: "",
+            title: "my video"
+        },
+        style: {
+            backgroundColor: "#00d"
+        },
+        isPinned: true
+    }
+}
+
+function getEmptyNoteImg() {
+    return {
+        type: "noteImg",
+        info: {
+            src: "",
+            title: "my image"
+        },
+        style: {
+            backgroundColor: "#00d"
+        },
+        isPinned: true
+    }
+}
+
+
+
 
 // function getCmpIdByType(cmpType) {
 //     getById()
@@ -105,4 +184,14 @@ function _createNotes() {
         utilService.saveToStorage(NOTES_KEY, notes)
     }
     return notes;
+}
+
+
+function getCmpIdByType(cmpType) {
+    for (let i = 0; i < notesDB.cmps.length; i++) {
+        if (notesDB.cmps[i].type === cmpType) {
+            console.log('i at 34', i)
+            return i;
+        }
+    }
 }
