@@ -10,7 +10,7 @@ export default {
         </div>
         <div class="menu-container">
             <img class="menu-icon" src="../../icons/menu.svg">
-            <div class="dropdown-container close-dropdown">
+            <div class="dropdown-container">
                 <router-link to="/book"><img src="../../icons/book.svg" alt=""></router-link>
                 <router-link to="/note"><img src="../../icons/note.svg" alt=""></router-link>
                 <router-link to="/email"><img src="../../icons/mail.svg" alt=""></router-link>
