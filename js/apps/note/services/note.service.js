@@ -17,18 +17,6 @@ const NOTES_KEY = 'notes'
 const notesDB = _createNotes();
 
 
-function save(answer, idx) {
-    console.log('idx', idx)
-    query()
-    .then(notes => {
-        const currNote = notes.cmps[idx];
-            if (currNote.type === 'noteVideo' || currNote.type === 'noteImg') currNote.info.url = answer
-            else if (currNote.type === 'noteTxt') currNote.info.txt = answer
-            else currNote.info.todos = answer
-            utilService.saveToStorage(NOTES_KEY, notes)
-        })
-}
-
 function save(answer, cmpType) {
     var note = null;
     if (cmpType === 'noteVideo') {
