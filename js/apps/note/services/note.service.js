@@ -119,7 +119,7 @@ function getEmptyNoteImg() {
 function _createNotes() {
     let notes = utilService.loadFromStorage(NOTES_KEY)
     console.log('notes', notes)
-    if (!notes.cmps || !notes.cmps.length) {
+    if (!notes || !notes.length) {
         notes =
         {
             title: 'Awesome Notes',
