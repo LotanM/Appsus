@@ -12,7 +12,13 @@ export default {
             <h2>{{notes.title}}</h2>
             <form @submit.prevent="save">
                 <div v-for="(cmp, idx) in notes.cmps">
-                    <component :is="cmp.type"  :info="cmp.info" @setVal="setAns($event, idx)"></component>
+                    <component :is="type"  :info="cmp.info" @setVal="setAns($event, idx)"></component>
+                    <div class="cmp-type-controller"> 
+                        <img type="button" src="../../../../icons/txt.png" @click="changeCmpType('noteTxt')">
+                        <img type="button" src="../../../../icons/img.png" @click="changeCmpType('noteImg')">
+                        <img type="button" src="../../../../icons/todo.png" @click="changeCmpType('noteTodo')">
+                        <img type="button" src="../../../../icons/video.png" @click="changeCmpType('noteVideo')">
+                    </div>
                 </div>
                 <button>Save</button>
             </form>
@@ -24,7 +30,8 @@ export default {
             txt: '',
             label: '',
             notes: null,
-            answers: []
+            answers: [],
+            type: 'noteTxt'
         }
     },
     created() {
@@ -36,11 +43,14 @@ export default {
 
     },
     methods: {
+        changeCmpType(cmpType) {
+            console.log('cmpType', cmpType)
+            this.type = cmpType
+        },
         setAns(ans, idx) {
             console.log('Setting the answer: ', ans, 'idx:', idx);
             this.answers.splice(idx, 1, ans)
             console.log('this.answers', this.answers)
-
         },
         save() {
             console.log('Saving..', this.answers);

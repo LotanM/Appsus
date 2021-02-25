@@ -20,22 +20,29 @@ var notes =
         {
             type: "noteTodos",
             info: {
-                label: "How was it:"
-                // todos: [
-                    //     { txt: "Do that", doneAt: null },
-                    //     { txt: "Do this", doneAt: 187111111 }
-                    // ]
-                }
+                label: "How was it:",
+                todos: [
+                    { txt: "Do that", doneAt: null },
+                    { txt: "Do this", doneAt: 187111111 }
+                ]
             }
-            // {
-            //     type: "noteImg",
-            //     info: {
-            //         url: "http://some-img/me",
-            //         title: "Me playing Mi"
-            //     },
-            //     style: {
-            //         backgroundColor: "#00d"
-            //     }
-            // },
-        ]
+        }
+        // {
+        //     type: "noteImg",
+        //     info: {
+        //         url: "http://some-img/me",
+        //         title: "Me playing Mi"
+        //     },
+        //     style: {
+        //         backgroundColor: "#00d"
+        //     }
+        // },
+        // {
+        //     type: "noteVideo",
+        //     info: {
+        //         url: "http://some-video/me",
+        //         title: "Me playing Mi"
+        //     }
+        // }
+    ]
 }

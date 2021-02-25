@@ -2,6 +2,7 @@
 @import './cmps/app-header.css';
 @import './apps/book/book-app.css';
 @import './pages/home-page.css';
+@import './apps/note/note-app.css';
 
 * {
     box-sizing: border-box;
