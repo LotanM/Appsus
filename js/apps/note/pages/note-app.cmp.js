@@ -8,7 +8,7 @@ import { noteService } from '../services/note.service.js'
 export default {
     name: 'note-app',
     template: `
-        <section v-if="notes" class="note-app">
+        <section v-if="currCmp" class="note-app">
             <h2>{{notes.title}}</h2>
             <form @submit.prevent="save">
                 <component :is="currCmp.type" :info="currCmp.info" @setVal="setAns($event, currCmp.type)"></component>
@@ -21,7 +21,7 @@ export default {
             </div>
             <button>Save</button>
         </form>
-        <pre>{{answers}}</pre>
+        <pre>{{notes}}</pre>
     </section>
     `,
     data() {
@@ -46,15 +46,19 @@ export default {
             this.currCmp = this.notes.cmps.find(cmp => cmp.type === cmpType)
         },
         setAns(ans, cmpType) {
-            const idx = this.notes.cmps.findIndex(cmp => cmp.type === cmpType)
-            console.log('idx', idx)
-            console.log('Setting the answer: ', ans, 'idx:', idx);
+            const idx = noteService.getCmpIdByType(cmpType)
             this.answers.splice(idx, 1, ans)
-            console.log('this.answers', this.answers)
+
         },
         save() {
-            console.log('Saving..', this.answers);
+            const idx = noteService.getCmpIdByType(this.currCmp.type)
+            noteService.save(this.answers[idx], idx)
         }
+    },
+    computed: {
+        renderedAnswers() {
+
+        },
     },
     components: {
         noteTodo,

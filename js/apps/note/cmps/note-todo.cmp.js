@@ -6,10 +6,10 @@ export default {
             <h1>label:{{info.label}}</h1>
             <ul>
             <li v-for='(todos, idx) in info.todos'> 
-              {{info.todos[idx].txt}}
+                {{info.todos[idx].txt}}
             </li>
             </ul>
-                <input type="text" v-model="val" @change="reportVal" :list="listId"/>
+                <input type="text" v-model="val" @change="reportVal" :list="listId" placeholder="Enter comma seperated list"/>
             </label>
         </section>
         `,
