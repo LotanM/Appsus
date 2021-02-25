@@ -9,7 +9,7 @@ export default {
     template: `
         <section v-if="currCmp" class="note-app">
             <form @submit.prevent="save" class="note-compose-container">
-                <component :is="currCmp.type" :info="currCmp.info" @setVal="setAns($event, currCmp.type)"></component>
+                <component :is="currCmp.type" :info="currCmp.info" @setVal="setAns($event)"></component>
                 <div class="cmp-type-controller"> 
                     <img type="button" src="../../../../icons/txt.png" @click="changeCmp('noteTxt')">
                     <img type="button" src="../../../../icons/img.png" @click="changeCmp('noteImg')">
@@ -20,9 +20,13 @@ export default {
             <button>Save</button>
         </form>
         <div class="curr-note">
-            <pre>{{answers}}</pre>
+            <pre>{{answer}}</pre>
         </div>
-        <pre>{{notes}}</pre>
+        <div class="notes-display-container">
+            <div class="txt-type" v-for="note in notes.cmps">
+                <p>{{note.info.txt}}</p>
+            </div>
+        </div>
     </section>
     `,
     data() {
@@ -30,15 +34,14 @@ export default {
             txt: '',
             label: '',
             notes: null,
-            answers: [],
+            answer: '',
             currCmp: null
         }
     },
     created() {
-        noteService.getById()
+        noteService.query()
             .then(notes => {
                 this.notes = notes
-                this.answers = new Array(this.notes.cmps.length)
                 this.currCmp = notes.cmps[0]
             })
     },
@@ -46,19 +49,15 @@ export default {
         changeCmp(cmpType) {
             this.currCmp = this.notes.cmps.find(cmp => cmp.type === cmpType)
         },
-        setAns(ans, cmpType) {
-            const idx = noteService.getCmpIdByType(cmpType)
-            this.answers.splice(idx, 1, ans)
-        },
-        save() {
-            const idx = noteService.getCmpIdByType(this.currCmp.type)
-            noteService.save(this.answers[idx], idx)
-        }
-    },
-    computed: {
-        renderedAnswers() {
+        setAns(ans) {
+            this.answer = ans
 
         },
+        save() {
+            noteService.save(this.answer, this.currCmp.type)
+            noteService.query()
+                .then(notes => this.notes = notes)
+        }
     },
     components: {
         noteTodo,
@@ -66,4 +65,4 @@ export default {
         // noteImg,
         // noteVideo
     }
-};
+}

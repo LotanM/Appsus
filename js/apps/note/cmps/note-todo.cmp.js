@@ -4,10 +4,16 @@ export default {
         <section class="note-todo">
             <label>
             <h1>label:{{info.label}}</h1>
+<<<<<<< HEAD
             <ul>            
                 <li v-for='(todos, idx) in info.todos' :class="{done: todos.isChecked}" @click="updateDone(idx)"> 
                      <p>{{info.todos[idx].txt}}</p>
                 </li>
+=======
+            <ul>
+            <li v-for='(todos, idx) in info.todos' :class="{done: todos.isChecked}" @click="updateDone(idx)"></li>
+                <p>{{info.todos[idx].txt}}</p>
+>>>>>>> fd6ef9551fbdd4c5aef7487f89e01d3e4c1fc9fd
             </ul>
                 <input type="text" v-model="val" @change="reportVal" :list="listId" placeholder="Enter comma seperated list"/>
             </label>

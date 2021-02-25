@@ -2,7 +2,7 @@ import { utilService } from '../../../services/util.service.js'
 import { storageService } from '../../../services/async-storage.service.js'
 
 export const noteService = {
-    getById,
+    // getById,
     query,
     addNote,
     remove,
@@ -11,7 +11,6 @@ export const noteService = {
     getEmptyNoteTodo,
     getEmptyNoteVideo,
     getEmptyNoteImg,
-    getCmpIdByType,
 }
 
 const NOTES_KEY = 'notes'
@@ -30,6 +29,27 @@ function save(answer, idx) {
         })
 }
 
+function save(answer, cmpType) {
+    var note = null;
+    if (cmpType === 'noteVideo') {
+        note = getEmptyNoteVideo();
+        note.info.url = answer
+    }
+    else if (cmpType === 'noteImg') {
+        note = getEmptyNoteImg();
+        note.info.url = answer
+    }
+    else if (cmpType === 'noteTxt') {
+        note = getEmptyNoteTxt();
+        note.info.txt = answer
+    }
+    else {
+        note = getEmptyNoteTodo();
+        note.info.todos = answer
+    }
+    notesDB.cmps.push(note)
+    utilService.saveToStorage(NOTES_KEY, notesDB)
+}
 
 function addNote(noteToAdd) { // save, returns Promise
     return storageService.post(NOTES_KEY, noteToAdd)
@@ -42,9 +62,9 @@ function query() { //get all notes, returns Promise
 function remove(noteId) { //delete note, returns Promise
     return storageService.remove(NOTES_KEY, noteId)
 }
-function getById(id) { //get note by id, returns Promise
-    return storageService.get(NOTES_KEY, id)
-}
+// function getById(id) { //get note by id, returns Promise
+//     return storageService.get(NOTES_KEY, id)
+// }
 
 
 // Empty notes:
@@ -54,7 +74,7 @@ function getEmptyNoteTxt() {
         id: utilService.makeId(),
         type: "noteTxt",
         info: {
-            txt: ""
+            txt: ''
         },
         style: {
             backgroundColor: "#00d"
@@ -108,26 +128,10 @@ function getEmptyNoteImg() {
 }
 
 
-
-
-// function getCmpIdByType(cmpType) {
-//     getById()
-//         .then(notes => {
-//             const cmps = notes.cmps
-//             for (let i = 0; i < cmps.length; i++) {
-//                 if (cmps[i].type === cmpType) {
-//                     console.log('i at 34', i)
-//                     var idx = i
-//                 }
-//             }
-//             console.log('idx', idx)
-//             return idx;
-//         })
-// }
-
 function _createNotes() {
     let notes = utilService.loadFromStorage(NOTES_KEY)
-    if (!notes || !notes.length) {
+    console.log('notes', notes)
+    if (!notes.cmps || !notes.cmps.length) {
         notes =
         {
             title: 'Awesome Notes',
@@ -182,14 +186,4 @@ function _createNotes() {
         utilService.saveToStorage(NOTES_KEY, notes)
     }
     return notes;
-}
-
-
-function getCmpIdByType(cmpType) {
-    for (let i = 0; i < notesDB.cmps.length; i++) {
-        if (notesDB.cmps[i].type === cmpType) {
-            console.log('i at 34', i)
-            return i;
-        }
-    }
 }
