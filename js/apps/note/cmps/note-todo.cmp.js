@@ -5,7 +5,7 @@ export default {
             <label>
             <h1>label:{{info.label}}</h1>
             <ul>
-            <li v-for='(todos, idx) in info.todos' :class="{done: todos.isChecked}" @click="updateDone(idx)"> 
+            <li v-for='(todos, idx) in info.todos' :class="{done: todos.isChecked}" @click="updateDone(idx)"></li>
                 <p>{{info.todos[idx].txt}}</p>
             </ul>
                 <input type="text" v-model="val" @change="reportVal" :list="listId" placeholder="Enter comma seperated list"/>
