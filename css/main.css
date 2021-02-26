@@ -10,6 +10,11 @@
     padding: 0;
 }
 
+.done {
+    text-decoration: line-through;
+}
+
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }

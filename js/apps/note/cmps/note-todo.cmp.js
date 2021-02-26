@@ -1,41 +1,35 @@
 export default {
     name: 'note-todo',
+    props: ["info"],
     template: `
         <section>
             <label>
-            <ul>            
-                <li v-for='(todos, idx) in info.todos' :class="{done: todos.isChecked}" @click="updateDone(idx)"> 
-                    <p>{{info.todos[idx].txt}}</p>
-                </li>
-            <ul>
                 <input type="text" v-model="val" @change="reportVal" :list="listId" placeholder="Enter comma seperated list"/>
             </label>
         </section>
         `,
-    props: ["info"],
     data() {
         return {
             val: "",
-            currTodo: null,
+            vals: [],
             todoList: []
         }
     },
     methods: {
-        reportVal() {
-            this.$emit("setVal", this.val);
+        customizedTodos() {
+            this.vals = this.val.split(',');
+            (this.vals).forEach(val => {
+                let obj = {
+                    txt: val,
+                    doneAt: null,
+                    isChecked: false
+                }
+                this.todoList.push(obj)
+            })
+            return this.todoList
         },
-        updateDone(idx) {
-            this.currTodo = this.info.todos[idx];
-            if (this.currTodo.isChecked === false) {
-                this.currTodo.doneAt = Date.now()
-                this.currTodo.isChecked = true;
-                console.log('this.currTodo.isChecked:', this.currTodo.isChecked)
-
-            } else {
-                this.currTodo.doneAt = null
-                this.currTodo.isChecked = false;
-                console.log('this.currTodo.isChecked:', this.currTodo.isChecked)
-            }
+        reportVal() {
+            this.$emit("setVal", this.customizedTodos());
         }
     },
     computed: {

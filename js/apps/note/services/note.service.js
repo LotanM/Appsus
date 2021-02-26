@@ -20,11 +20,11 @@ function save(answer, cmpType) {
     var note = null;
     if (cmpType === 'note-video') {
         note = getEmptyNoteVideo();
-        note.info.url = answer
+        note.info.src = answer
     }
     else if (cmpType === 'note-img') {
         note = getEmptyNoteImg();
-        note.info.url = answer
+        note.info.src = answer
     }
     else if (cmpType === 'note-txt') {
         note = getEmptyNoteTxt();
@@ -32,7 +32,7 @@ function save(answer, cmpType) {
     }
     else {
         note = getEmptyNoteTodo();
-        note.info.todos = answer
+        note.info.todos = answer //get array of txtObjs
     }
     notesDB.cmps.push(note)
     utilService.saveToStorage(NOTES_KEY, notesDB)
@@ -76,7 +76,7 @@ function getEmptyNoteTodo() {
         type: "note-todo",
         info: {
             todos: [
-                { txt: "", doneAt: null, isChecked: false },
+                // { txt: "", doneAt: null, isChecked: false },
             ]
         },
         style: {
@@ -91,7 +91,7 @@ function getEmptyNoteVideo() {
         id: utilService.makeId(),
         type: "note-video",
         info: {
-            url: "",
+            src: "",
             title: "my video"
         },
         style: {
@@ -118,7 +118,6 @@ function getEmptyNoteImg() {
 
 function _createNotes() {
     let notes = utilService.loadFromStorage(NOTES_KEY)
-    console.log(notes, '=== undefined');
     if (!notes) {
         notes = {
             title: 'Awesome Notes',
@@ -152,7 +151,7 @@ function _createNotes() {
                     id: utilService.makeId(),
                     type: "note-img",
                     info: {
-                        url: "https://variety.com/wp-content/uploads/2019/06/spongebob-battle-remaster.png?w=681&h=383&crop=1",
+                        src: "https://variety.com/wp-content/uploads/2019/06/spongebob-battle-remaster.png?w=681&h=383&crop=1",
                         title: "my image"
                     },
                     style: {
