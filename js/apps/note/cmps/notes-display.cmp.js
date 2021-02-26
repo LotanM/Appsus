@@ -1,18 +1,20 @@
 
 export default {
     name: 'notes-display',
-    props: ['note'],
+    props: ['note', "notes"],
     template: `
          <section>
+
          <div v-if="note.type==='note-txt'">
-            {{note.info.txt}}
+         <h4>My note</h4>
+         <p>{{note.info.txt}}</p>
          </div>
 
          <div v-if="note.type==='note-todo'">
             <ul>
-              <h5>Todo:</h5>
+              <h4>To do:</h4>
                 <li v-for="(todo, idx) in note.info.todos" :class="{done: todo.isChecked}" @click="updateTodo(idx)">
-                    {{note.info.todos[idx].txt}}
+                    - {{note.info.todos[idx].txt}}
                 </li> 
             </ul>
          </div>
@@ -26,7 +28,7 @@ export default {
               <iframe v-if="note.type==='note-video'" :src="convertToEmbeded">
               </iframe>
          </div>
-
+</div>
         </section>
     `,
     data() {

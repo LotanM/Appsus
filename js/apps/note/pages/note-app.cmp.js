@@ -11,14 +11,14 @@ export default {
         <section v-if="currCmp" class="note-app">
             <form @submit.prevent="save" class="note-compose-container">
                 <component :is="currCmp.type" :info="currCmp.info" @setVal="setAns($event)"></component>
-                <div class="cmp-type-controller"> 
-                    <img type="button" src="../../../../icons/txt.png"  @click="changeCmp('note-txt')">
-                    <img type="button" src="../../../../icons/img.png" @click="changeCmp('note-img')">
-                    <img type="button" src="../../../../icons/todo.png" @click="changeCmp('note-todo')">
-                    <img type="button" src="../../../../icons/video.png" @click="changeCmp('note-video')">
+                <div class="cmp-type-container"> 
+                    <img type="button" src="../../../../icons/note-app/txt.svg"  @click="changeCmp('note-txt')">
+                    <img type="button" src="../../../../icons/note-app/img.svg" @click="changeCmp('note-img')">
+                    <img type="button" src="../../../../icons/note-app/list.svg" @click="changeCmp('note-todo')">
+                    <img type="button" src="../../../../icons/note-app/video.svg" @click="changeCmp('note-video')">
                 </div>
             </div>
-            <button>Save</button>
+            <!-- <button>Save</button> -->
         </form>
         <div class="curr-note">
             {{answer}}

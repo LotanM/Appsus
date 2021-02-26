@@ -2,7 +2,7 @@ export default {
     name:"note-video",
     template: `
         <section>
-            <input type="text" v-model="val" @change="reportVal" :list="listId" placeholder="place video src" />  
+            <input type="text" v-model="val" @change="reportVal" :list="listId" placeholder="Enter video URL..."/>  
         </section>
         `,
     props: ["info"],
