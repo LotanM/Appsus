@@ -9,8 +9,10 @@ export default {
     name: 'book-app',
     template: `
         <section class="book-app">
-            <book-filter @filtered="setFilter"/>
-            <book-add/>
+            <div class="book-inputs">
+                <book-filter @filtered="setFilter"/>
+                <book-add/>
+            </div>
             <book-list :books="booksToShow" @remove="removeBook"></book-list>
         </section>
     `,
@@ -60,7 +62,7 @@ export default {
                         && book.listPrice.amount <= this.filterBy.toPrice
                 })
             }
-            if (this.filterBy.fromPrice && this.filterBy.toPrice && this.filterBy.byName) {
+            if (this.filterBy.byName && this.filterBy.fromPrice && this.filterBy.toPrice) {
                 const searchStr = this.filterBy.byName.toLowerCase()
                 booksToShow = this.books.filter(book => {
                     return book.listPrice.amount >= this.filterBy.fromPrice

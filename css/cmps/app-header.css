@@ -1,4 +1,6 @@
 .app-header {
+    box-sizing: content-box;
+    padding: 0.25rem 0 0.25rem 0;
     display: flex;
     background-color: #ffffff5e;
     height: 10vh;
@@ -16,6 +18,7 @@
 .app-header .menu-icon {
     width: 40px;
     cursor: pointer;
+    vertical-align: middle;
 }
 
 /* DROPDOWN */
@@ -73,6 +76,7 @@
 }
 
 .app-header .logo-icon {
+    vertical-align: middle;
     width: 50px;
     height: 50px;
 }

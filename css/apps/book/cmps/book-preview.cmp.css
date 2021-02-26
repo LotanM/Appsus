@@ -7,7 +7,8 @@
 
 .book-preview-container {
     width: 150px;
-    height: 270px;
+    min-height: 270px;
+    max-height: fit-content;
     display: flex;
     font-size: 0.9rem;
     flex-direction: column;

@@ -45,5 +45,5 @@ textarea {
     color: orange;
 }
 .star-list .star:hover~.star {
-    color: black
+    color: rgb(56, 56, 56);
 }

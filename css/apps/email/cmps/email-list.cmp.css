@@ -1,6 +1,6 @@
 .email-list{
     display: flex;
-    flex-direction: column;
+    flex-direction: column;    
 }
 
 .email-list-container {

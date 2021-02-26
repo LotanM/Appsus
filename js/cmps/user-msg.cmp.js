@@ -3,7 +3,7 @@ import { eventBus } from "../services/event-bus.service.js"
 export default {
     template: `
         <section v-if="msg" class="user-msg" :class="msg.type">
-            <button @click="msg=null">x</button>
+            <button @click="msg=null">&#10060;</button>
             <p>{{msg.txt}}</p>
         </section>
     `,

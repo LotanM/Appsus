@@ -11,15 +11,15 @@ export default {
         <div class="menu-container">
             <img class="menu-icon" src="../../icons/menu.svg" @click="toggleClass" >
             <div class="dropdown-container" :class="dropDownClass">
-                <router-link to="/book"><img src="../../icons/book.svg" alt=""></router-link>
-                <router-link to="/note"><img src="../../icons/note.svg" alt=""></router-link>
-                <router-link to="/email"><img src="../../icons/mail.svg" alt=""></router-link>
-                <router-link to="/about"><img src="../../icons/about.svg" alt=""></router-link>
+                <router-link to="/book"><img src="../../icons/book.svg" @click="closeMenu"></router-link>
+                <router-link to="/note"><img src="../../icons/note.svg" @click="closeMenu"></router-link>
+                <router-link to="/email"><img src="../../icons/mail.svg" @click="closeMenu"></router-link>
+                <router-link to="/about"><img src="../../icons/about.svg" @click="closeMenu"></router-link>
             </div>
         </div>
     </header>
     `,
-    data(){
+    data() {
         return {
             dropDownClass: 'close-dropdown'
         }
@@ -28,7 +28,9 @@ export default {
         toggleClass() {
             if (this.dropDownClass === 'close-dropdown') this.dropDownClass = 'open-dropdown'
             else this.dropDownClass = 'close-dropdown'
-            
+        },
+        closeMenu() {
+            this.dropDownClass = 'close-dropdown'
         }
     }
 }

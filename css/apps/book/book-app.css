@@ -6,14 +6,19 @@
 @import '../book/pages/book-add.cmp.css';
 
 
-
-
 .book-app {
-    background-color: #2ECC71;
+    background-color: rgb(162, 235, 192);
     text-align: center;
-    height: 100%;
+    height: fit-content;
+    padding: 0.5rem;
 }
 
-.book-app >*:not(:last-child) {
-    /* display: flex; */
+/* .book-app >*:not(:last-child) {
+    display: flex;
+} */
+
+.book-inputs{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
 }

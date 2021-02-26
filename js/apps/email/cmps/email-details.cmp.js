@@ -7,13 +7,18 @@ export default {
     name: 'email-details',
     template: `
     <section class="email-details" v-if="email">
-        <router-link to="/email">Back to inbox</router-link>
         <button @click="removeEmail(email.id)">Delete</button>
-        <h1 class="subject">Subject: {{email.subject}}</h1>
+        <h4 class="subject">{{email.subject}}</h4>
+        <div class="address-details">
+            <p>From: {{email.from}}</p>
+            <p>To: {{email.to}}</p>
+        </div>
         <p class="body">{{email.body}}</p>
-        <p>{{email.sentAt}}</p>
-        <button><--Reply</button>
-        <button>Forward--></button>
+        <p class="details-timestamp">Sent at {{formattedTime}}</p>
+        <div class="details-button-container">
+            <router-link to="/email">🠔 Back to inbox</router-link>
+            <router-link :to="'/email/compose/'+email.id">Reply 🠖</router-link>
+        </div>
     </section>
     `,
     data() {
@@ -28,6 +33,11 @@ export default {
         },
         removeEmail(emailId){
             this.$emit('remove', emailId);
+        }
+    },
+    computed:{
+        formattedTime(){
+            return new Date(this.email.sentAt)
         }
     },
     created() {

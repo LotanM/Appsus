@@ -12,8 +12,12 @@ export default {
             <li class="compose">
                 <router-link to="/email/compose">Compose</router-link>
             </li> 
-            <li class="inbox" @click="isInbox = true"> inbox </li> 
-            <li class="sent" @click="isInbox = false"> sent </li> 
+            <li class="inbox" @click="isInbox = true">
+                <router-link to="/email">inbox</router-link>
+            </li> 
+            <li class="sent" @click="isInbox = false">
+                <router-link to="/email">sent</router-link>
+            </li> 
         </ul>
         <router-view :emails="emailsToShow" @remove="removeEmail" @save="loadEmails" @filtered="setFilter"/>
     </div>

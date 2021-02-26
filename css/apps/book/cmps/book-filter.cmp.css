@@ -1,7 +1,10 @@
 /* FILTER */
 
 .book-filter {
-    display: inline;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
 }
 
 .book-filter input {
@@ -14,5 +17,5 @@
     width: 60px
 }
 .book-filter .txt-input{
-    width: 380px
+    width: 150px
 }

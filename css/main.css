@@ -3,6 +3,7 @@
 @import './apps/book/book-app.css';
 @import './pages/home-page.css';
 @import './apps/note/note-app.css';
+@import './cmps/user-msg.cmp.css';
 
 * {
     box-sizing: border-box;
@@ -16,7 +17,9 @@
 
 
 body {
+    color: rgb(56, 56, 56);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: rgb(252, 251, 237);
 }
 
 .main-app {
@@ -40,7 +43,7 @@ footer >* {
 
 a {
     text-decoration: none;
-    color:black;
+    color:rgb(56, 56, 56);
 }
 
 h1, h2, h3, h4, h5 {

@@ -7,6 +7,7 @@ export default {
                 <span class="email-desc">{{email.body.substring(0, 50)}}...
                 </span>
             </h4> 
+            
         </section>
         `,
     methods: {

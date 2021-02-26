@@ -10,7 +10,7 @@ export default {
         <ul class="email-list">
             <li v-for="email in emails" :key="email.id" class="email-preview-container">
                 <router-link :to="'/email/'+email.id">
-                    <email-preview :email="email"/>
+                        <email-preview :email="email"/>
                 </router-link>
             </li>
         </ul>

@@ -43,7 +43,7 @@ function addReview(bookId, reviewsObj) {
 }
 
 function addGoogleBook(bookToAdd){
-    storageService.post(BOOKS_KEY, bookToAdd)
+    return storageService.post(BOOKS_KEY, bookToAdd)
 }
 
 function getEmptyBook() {

@@ -3,30 +3,30 @@ export default {
     name: 'notes-display',
     props: ['note'],
     template: `
-         <section>
-         <div v-if="note.type==='note-txt'">
+        <section>
+        <button>X</button>
+        <div v-if="note.type==='note-txt'">
             {{note.info.txt}}
-         </div>
+        </div>
 
-         <div v-if="note.type==='note-todo'">
+        <div v-if="note.type==='note-todo'">
             <ul>
-              <h5>Todo:</h5>
+                <h5>Todo:</h5>
                 <li v-for="(todo, idx) in note.info.todos" :class="{done: todo.isChecked}" @click="updateTodo(idx)">
                     {{note.info.todos[idx].txt}}
                 </li> 
             </ul>
-         </div>
+        </div>
 
-         <div v-if="note.type==='note-img'">
-              <img :src="this.note.info.src" alt="">
+        <div v-if="note.type==='note-img'">
+            <img :src="this.note.info.src" alt="">
             <!-- {{note.info.src}} -->
-         </div>
+        </div>
 
-         <div >
-              <iframe v-if="note.type==='note-video'" :src="convertToEmbeded">
-              </iframe>
-         </div>
-
+        <div >
+            <iframe v-if="note.type==='note-video'" :src="convertToEmbeded">
+            </iframe>
+        </div>
         </section>
     `,
     data() {
@@ -50,11 +50,11 @@ export default {
         },
     },
     computed: {
-        convertToEmbeded(){
-        var str = this.note.info.src;
-        var res = str.split("=");
-        var embeddedUrl = "https://www.youtube.com/embed/"+res[1]
-        return embeddedUrl
+        convertToEmbeded() {
+            var str = this.note.info.src;
+            var res = str.split("=");
+            var embeddedUrl = "https://www.youtube.com/embed/" + res[1]
+            return embeddedUrl
         }
     }
 }

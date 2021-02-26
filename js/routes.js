@@ -55,30 +55,15 @@ const routes = [
                 component: emailCompose
             },
             {
+                path: 'compose/:emailId',
+                component: emailCompose
+            },
+            {
                 path: ':emailId',
                 component: emailDetails
             },
         ]
     }
 ]
-
-    // path: '/about',
-    //     component: about,
-    //     children: [
-    //         {
-    //             path: 'team',
-    //             component: aboutTeam
-    //         },
-    //         
-    //         {
-    //             path: 'services',
-    //             component: aboutServices
-    //         },
-    //         {
-    //             path: '/',
-    //             component: aboutTeam
-    //         },            
-    //     ]
-    // },
 
 export const myRouter = new VueRouter({ routes })

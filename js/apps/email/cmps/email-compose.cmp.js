@@ -5,15 +5,24 @@ export default {
     name: 'email-compose',
     template: `
     <section v-if="email" class="email-compose">
-        <h3>Compose a new email</h3>
-        <form @submit.prevent.stop="save(email.id)">
-            <label for="email-address">Email Address: </label>
-            <input id="email-address" placeholder="Email Address" type="email" >
-            <label for="subject">Subject: </label>
-            <input id="subject" placeholder="Subject" type="text" v-model="email.subject">
-            <label for="body">Body: </label>
-            <textarea rows="10" id="body" placeholder="Type in your words" type="text" v-model="email.body"></textarea>
-            <button type="submit">Save</button>
+        <h4>{{title}}</h4>
+        <form @submit.prevent.stop="save(email.id)" class="email-compose-form">
+            <div>
+                <label for="email-address">Email Address: </label>
+                <input id="email-address" placeholder="Email Address" type="email" v-model="email.to">
+            </div>
+            <div>
+                <label for="subject">Subject: </label>
+                <input id="subject" placeholder="Subject" type="text" v-model="email.subject">
+            </div>
+            <div>
+                <label for="body">Body: </label><br>
+                <textarea rows="10" id="body" placeholder="Type in your words" type="text" v-model="email.body"></textarea>
+            </div>
+            <div class="compose-button-container">
+                <button type="submit" class="save">Save</button>
+                <router-link to="/email">Back to inbox</router-link>
+            </div>
         </form>
     </section>
     `,
@@ -24,7 +33,7 @@ export default {
     },
     methods: {
         save(emailId) {
-            console.log('this.email', this.email)
+            this.email.sentAt = Date.now()
             emailService.addEmail(this.email)
                 .then(email => {
                     console.log('Saved Email:', email);
@@ -44,6 +53,14 @@ export default {
                     }
                     eventBus.$emit('show-msg', msg)
                 })
+        }
+    },
+    computed: {
+        title() {
+            return this.emailId ? 'Reply' : 'Compose a new email'
+        },
+        emailId() {
+            return this.$route.params.emailId
         }
     },
     created() {

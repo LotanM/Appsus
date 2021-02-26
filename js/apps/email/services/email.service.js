@@ -48,10 +48,15 @@ function _createEmails() {
             {
                 id: utilService.makeId(),
                 subject: `Tip 3: Move faster with collaboration`,
-                body: `Shared workspaces can help your entire team stay on top of their projects.
-                        How to collaborate in Workona
-                        Open a workspace and click the “Share” button in the top-right. This is where youll invite collaborators and manage sharing permissions for the workspace.
-                        Remember, your tabs are private and will never be shared.`, 
+                body: 
+                `Shared workspaces can help your entire team
+                    stay on top of their projects.
+                    How to collaborate in Workona
+                    Open a workspace and click the “Share” button
+                    in the top-right. This is where youll invite
+                    collaborators and manage sharing permissions
+                    for the workspace.
+                    Remember, your tabs are private and will never be shared.`, 
                 isRead: false,
                 sentAt: 1151139930694,
                 from: 'welcome@workona.com',
@@ -100,8 +105,8 @@ function _createEmails() {
                 - Pushed date: February 17th 2021, 20:40:36 UTC`,
                 isRead: false,
                 sentAt: 1551193930594,
-                from: 'welcome@workona.com',
-                to: 'appsus@ca.com'
+                from: 'appsus@ca.com',
+                to: 'welcome@workona.com'
             }
         ]
         utilService.saveToStorage(EMAILS_KEY, emails)
