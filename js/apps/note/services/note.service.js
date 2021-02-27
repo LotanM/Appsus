@@ -34,7 +34,7 @@ function save(answer, cmpType) {
         note = getEmptyNoteTodo();
         note.info.todos = answer //get array of txtObjs
     }
-    notesDB.cmps.push(note)
+    notesDB.push(note)
     utilService.saveToStorage(NOTES_KEY, notesDB)
 }
 
@@ -52,7 +52,6 @@ function remove(noteId) { //delete note, returns Promise
 // function getById(id) { //get note by id, returns Promise
 //     return storageService.get(NOTES_KEY, id)
 // }
-
 
 // Empty notes:
 
@@ -118,61 +117,58 @@ function getEmptyNoteImg() {
 
 function _createNotes() {
     let notes = utilService.loadFromStorage(NOTES_KEY)
-    if (!notes) {
-        notes = {
-            title: 'Awesome Notes',
-            cmps: [
-                {
-                    id: utilService.makeId(),
-                    type: "note-txt",
-                    info: {
-                        txt: "Fullstack Me Baby!"
-                    },
-                    style: {
-                        backgroundColor: "#00d"
-                    },
-                    isPinned: true
+    if (!notes || !notes.length) {
+        notes = [
+            {
+                id: utilService.makeId(),
+                type: "note-txt",
+                info: {
+                    txt: "Fullstack Me Baby!"
                 },
-                {
-                    id: utilService.makeId(),
-                    type: "note-todo",
-                    info: {
-                        todos: [
-                            { txt: "Do that", doneAt: null, isChecked: false },
-                            { txt: "Do this", doneAt: 187111111, isChecked: false }
-                        ]
-                    },
-                    style: {
-                        backgroundColor: "#00d"
-                    },
-                    isPinned: true
+                style: {
+                    backgroundColor: "#00d"
                 },
-                {
-                    id: utilService.makeId(),
-                    type: "note-img",
-                    info: {
-                        src: "https://variety.com/wp-content/uploads/2019/06/spongebob-battle-remaster.png?w=681&h=383&crop=1",
-                        title: "my image"
-                    },
-                    style: {
-                        backgroundColor: "#00d"
-                    },
-                    isPinned: true
+                isPinned: false
+            },
+            {
+                id: utilService.makeId(),
+                type: "note-todo",
+                info: {
+                    todos: [
+                        { txt: "Do that", doneAt: null, isChecked: false },
+                        { txt: "Do this", doneAt: 187111111, isChecked: false }
+                    ]
                 },
-                {
-                    id: utilService.makeId(),
-                    type: "note-video",
-                    info: {
-                        src: "https://www.youtube.com/embed/watch?v=M-mRdZjfSHI",
-                        title: "my video"
-                    },
-                    style: {
-                        backgroundColor: "#00d"
-                    },
-                    isPinned: true
-                }
-            ]
-        }
+                style: {
+                    backgroundColor: "#00d"
+                },
+                isPinned: false
+            },
+            {
+                id: utilService.makeId(),
+                type: "note-img",
+                info: {
+                    src: "https://variety.com/wp-content/uploads/2019/06/spongebob-battle-remaster.png?w=681&h=383&crop=1",
+                    title: "my image"
+                },
+                style: {
+                    backgroundColor: "#00d"
+                },
+                isPinned: true
+            },
+            {
+                id: utilService.makeId(),
+                type: "note-video",
+                info: {
+                    src: "https://www.youtube.com/embed/watch?v=M-mRdZjfSHI",
+                    title: "my video"
+                },
+                style: {
+                    backgroundColor: "#00d"
+                },
+                isPinned: true
+            }
+        ]
         utilService.saveToStorage(NOTES_KEY, notes)
     }
     return notes;
