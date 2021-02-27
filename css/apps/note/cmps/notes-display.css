@@ -1,7 +1,6 @@
-
 .note-app .note-card img {
-    max-width:100%;
-    max-height:200px;
+    max-width: 100%;
+    max-height: 200px;
 }
 
 .note-app .note-card {
@@ -25,7 +24,8 @@ iframe {
     background-color: rgb(233, 173, 62);
     text-align: center;
 }
-.note-txt .txt-editor textarea{
+
+.note-txt .txt-editor textarea {
     background-color: transparent;
     border: 1px solid palegoldenrod;
     height: 100%;
@@ -48,6 +48,7 @@ iframe {
     margin-left: 25px;
     cursor: pointer;
 }
+
 .note-app .note-todo li:hover {
     text-decoration: line-through;
 }
@@ -74,4 +75,14 @@ iframe {
     display: inline-block;
 }
 
+.note-btns {
+    background-color: transparent;
+    border: none;
+    font-size: 25px;
+}
 
+.note-btns:hover {
+    background-color: transparent;
+    border: none;
+    color: white;
+}
