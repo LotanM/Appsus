@@ -19,7 +19,7 @@ export default {
                 <router-link to="/email">sent</router-link>
             </li> 
         </ul>
-        <router-view :emails="emailsToShow" @remove="removeEmail" @save="loadEmails" @filtered="setFilter"/>
+        <router-view :emails="emailsToShow" @remove="removeEmail" @save="loadEmails" @filtered="setFilter" @read="updateEmail"/>
     </div>
     </section>
     `,
@@ -44,6 +44,10 @@ export default {
             emailService.remove(emailId)
                 .then(this.loadEmails)
                 .then(this.$router.push('/email'))
+        },
+        updateEmail(readEmail) {
+            emailService.update(readEmail)
+                .then(() => this.loadEmails())
         }
     },
     computed: {
@@ -61,7 +65,7 @@ export default {
             if (this.filterBy && this.filterBy.byName) {
                 const searchStr = this.filterBy.byName.toLowerCase()
                 emailsToShow = this.emails.filter(email => {
-                    return email.subject.toLowerCase().includes(searchStr)
+                    return email.subject.toLowerCase().includes(searchStr) || email.body.toLowerCase().includes(searchStr)
                 })
             }
             return emailsToShow;
