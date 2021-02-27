@@ -7,13 +7,13 @@ export default {
                 <span class="email-desc">{{email.body.substring(0, 50)}}...
                 </span>
             </h4> 
-            
         </section>
         `,
     methods: {
         updateIfRead() {
-            console.log('this.email.isRead', this.email.isRead)
+            console.log('this.email.isRead?', this.email.isRead)
             if (!this.email.isRead) this.email.isRead = true;
+            this.$emit('read', this.email)
         }
     },
     computed: {

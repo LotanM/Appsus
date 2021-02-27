@@ -6,7 +6,8 @@ export const emailService = {
     remove,
     getEmptyEmail,
     getById,
-    addEmail
+    addEmail,
+    update
 }
 
 
@@ -16,6 +17,9 @@ const emailsDB = _createEmails();
 
 function query() {
     return storageService.query(EMAILS_KEY)
+}
+function update(updatedEmail){
+    return storageService.put(EMAILS_KEY, updatedEmail)
 }
 
 function remove(emailId) {

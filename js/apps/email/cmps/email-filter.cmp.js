@@ -3,7 +3,7 @@ export default {
     template: `
         <section class="email-filter">
             <img src="../../../icons/search.png" alt="">
-            <input type="text" @input="setFilter" placeholder="Search by Email Name" v-model="filterBy.byName">
+            <input type="text" @input="setFilter" placeholder="Search by subject / body" v-model="filterBy.byName">
         </section>    
     `,
     data(){
