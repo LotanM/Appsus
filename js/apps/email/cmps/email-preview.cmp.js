@@ -11,7 +11,6 @@ export default {
         `,
     methods: {
         updateIfRead() {
-            console.log('this.email.isRead?', this.email.isRead)
             if (!this.email.isRead) this.email.isRead = true;
             this.$emit('read', this.email)
         }

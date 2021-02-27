@@ -1,3 +1,4 @@
+import { eventBus } from '../../../services/event-bus.service.js';
 import { emailService } from '../services/email.service.js'
 
 
@@ -17,6 +18,7 @@ export default {
         <p class="details-timestamp">Sent at {{formattedTime}}</p>
         <div class="details-button-container">
             <router-link to="/email">🠔 Back to inbox</router-link>
+            <button @click="sendEmailToNotes">Send to Notes</button>
             <router-link :to="'/email/compose/'+email.id">Reply 🠖</router-link>
         </div>
     </section>
@@ -31,12 +33,17 @@ export default {
             emailService.query()
                 .then(emails => this.emails = emails)
         },
-        removeEmail(emailId){
+        removeEmail(emailId) {
             this.$emit('remove', emailId);
+        },
+        sendEmailToNotes(){
+            console.log('click')
+            eventBus.$emit('email-to-note', this.email)
+            this.$router.push('/note')
         }
     },
-    computed:{
-        formattedTime(){
+    computed: {
+        formattedTime() {
             return new Date(this.email.sentAt)
         }
     },

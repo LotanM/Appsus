@@ -18,7 +18,7 @@ const emailsDB = _createEmails();
 function query() {
     return storageService.query(EMAILS_KEY)
 }
-function update(updatedEmail){
+function update(updatedEmail) {
     return storageService.put(EMAILS_KEY, updatedEmail)
 }
 
@@ -53,15 +53,15 @@ function _createEmails() {
             {
                 id: utilService.makeId(),
                 subject: `Tip 3: Move faster with collaboration`,
-                body: 
-                `Shared workspaces can help your entire team
+                body:
+                    `Shared workspaces can help your entire team
                     stay on top of their projects.
                     How to collaborate in Workona
                     Open a workspace and click the “Share” button
                     in the top-right. This is where youll invite
                     collaborators and manage sharing permissions
                     for the workspace.
-                    Remember, your tabs are private and will never be shared.`, 
+                    Remember, your tabs are private and will never be shared.`,
                 isRead: false,
                 sentAt: 1151139930694,
                 from: 'welcome@workona.com',

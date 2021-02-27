@@ -38,7 +38,6 @@ export default {
             this.email.sentAt = Date.now()
             emailService.addEmail(this.email)
                 .then(email => {
-                    console.log('Saved Email:', email);
                     const msg = {
                         txt: 'Email saved succesfully',
                         type: 'success'
@@ -48,7 +47,6 @@ export default {
                     this.$emit('save', emailId);
                 })
                 .catch(err => {
-                    console.log(err);
                     const msg = {
                         txt: 'Error, please try again later',
                         type: 'error'
@@ -66,6 +64,18 @@ export default {
         }
     },
     created() {
-        this.email = emailService.getEmptyEmail()
+        if (this.emailId) {
+            emailService.getById(this.emailId)
+                .then(email => {
+                    email.to = email.from
+                    email.from = 'appsus@ca.com'
+                    email.isRead = false;
+                    email.isStarred = false;
+                    email.subject = 'Re: ' + email.subject
+                    email.body = email.body + "\n" + '---------------------------------------------------------' + "\n"
+                    this.email = email
+                })
+        }
+        else this.email = emailService.getEmptyEmail()
     },
 }

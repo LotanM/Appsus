@@ -3,18 +3,18 @@ export default {
     template: `
         <section class="email-filter">
             <img src="../../../icons/search.png" alt="">
-            <input type="text" @input="setFilter" placeholder="Search by subject / body" v-model="filterBy.byName">
+            <input type="text" @input="setFilter" placeholder="Search all Emails" v-model="filterBy.byName">
         </section>    
     `,
-    data(){
+    data() {
         return {
             filterBy: {
                 byName: '',
             }
         }
     },
-    methods:{
-        setFilter(){
+    methods: {
+        setFilter() {
             this.$emit('filtered', this.filterBy)
         }
     }

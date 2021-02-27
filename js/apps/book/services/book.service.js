@@ -29,15 +29,12 @@ function getById(id) {
 }
 
 function addReview(bookId, reviewsObj) {
-    console.log('reviewObj', reviewsObj)
-    console.log('book id', bookId)
     storageService.get(BOOKS_KEY, bookId)
         .then(book => {
             book.reviews = reviewsObj
             return book
         })
         .then(book=>{
-            console.log('book at the end', book)
             storageService.put(BOOKS_KEY, book)
         })
 }

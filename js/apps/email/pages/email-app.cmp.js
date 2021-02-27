@@ -35,7 +35,6 @@ export default {
     },
     methods: {
         loadEmails() {
-            console.log('loading emails')
             emailService.query()
                 .then(emails => this.emails = emails)
         },
@@ -43,7 +42,6 @@ export default {
             this.filterBy = filterBy
         },
         removeEmail(emailId) {
-            console.log('last remove');
             emailService.remove(emailId)
                 .then(this.loadEmails)
                 .then(this.$router.push('/email'))
@@ -83,6 +81,6 @@ export default {
         this.loadEmails()
     },
     components: {
-        emailList,
-    },
+        emailList
+    }
 }

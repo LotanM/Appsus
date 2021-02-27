@@ -24,7 +24,7 @@ export default {
     },
     methods: {
         formattedSearchResult(searchResult) {
-            if (searchResult.title.length>30) return searchResult.title.substring(0, 30)+'..';
+            if (searchResult.title.length > 30) return searchResult.title.substring(0, 30) + '..';
             return searchResult.title
         },
         updateData() {
@@ -36,12 +36,11 @@ export default {
                     const { id, volumeInfo } = formattedResults.items[0]
                     const { title, authors, subtitle, publishedDate, description, pageCount, categories, language, imageLinks } = volumeInfo;
                     const thumbnail = imageLinks.thumbnail
-                    console.log('thumbnail', thumbnail)
                     this.searchResults.push({ id, title, subtitle, authors, publishedDate, description, pageCount, categories, thumbnail, language });
                 })
         },
         addBook(searchResult) {
-            this.searchStr='';
+            this.searchStr = '';
             const addedBook = {
                 ...searchResult,
                 'listPrice': {
@@ -75,7 +74,5 @@ export default {
                     eventBus.$emit('show-msg', msg)
                 })
         }
-    },
-    created() {
-    },
+    }
 }
