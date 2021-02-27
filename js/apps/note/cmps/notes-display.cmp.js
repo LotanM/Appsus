@@ -4,20 +4,15 @@ export default {
     props: ['note'],
     template: `
         <section>
-            <button @click="removeNote(note.id)">X</button>
-            <div v-if="note.type === 'note-txt'" >
-                <button @click="openTxtEditor">✎</button>
+            <button @click="removeNote(note.id)" class="note-btns">☒</button>
+            <button @click="SendAsEmail(note)" class="note-btns">@</button>
+            <button v-if="note.type === 'note-txt'" @click="openTxtEditor" class="note-btns">✎</button>
+            <div v-if="note.type === 'note-txt'">
                 {{note.info.txt}}
                 <form @submit.prevent="saveNewTxt(note)" v-if="toShow" class="txt-editor">
                     <textarea cols="15" rows="7" v-model="note.info.txt"></textarea>
                     <button type="submit">save</button>
                 </form>
-                <!-- <form @submit="saveNewTxt(note)" v-if="toShow">
-                    <p>{{message}}</p>
-                    <textarea cols="15" rows="4" v-model="message" placeholder="write here"></textarea>
-                    <button type="submit" @click="toShow = !toShow">save</button>
-                </form>
-                <button @click="openTxtEditor">✎</button> -->
             </div>
             
             <div v-if="note.type === 'note-todo'">
@@ -73,6 +68,9 @@ export default {
             this.toShow = false
             this.message =currNote.info.txt
             this.updateNote(currNote)
+        },
+        SendAsEmail(note) {
+            
         }
     },
     computed: {
