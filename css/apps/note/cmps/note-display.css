@@ -6,8 +6,12 @@
 .note-app .note-card {
     margin: 5px;
     padding: 10px;
-    background-color: rgb(88, 180, 84);
+    background-color: rgb(190, 228, 188);
     border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }
 
 iframe {
@@ -36,16 +40,15 @@ iframe {
     width: 180px;
     background-color: rgb(85, 132, 185);
     color: #272727;
+    /* align-items: flex-start; */
     text-align: left;
 }
 
 .note-app .note-todo ul h4 {
     margin-bottom: 10px;
-    margin-left: 10px;
 }
 
 .note-app .note-todo li {
-    margin-left: 25px;
     cursor: pointer;
 }
 
@@ -85,4 +88,9 @@ iframe {
     background-color: transparent;
     border: none;
     color: white;
+}
+
+
+.bgc img{
+    width: 20px;
 }

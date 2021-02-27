@@ -21,8 +21,9 @@ export default {
             </div>
         </form>
         <div class="notes-display-container">
-            <div :class="note.type" class="note-card" v-for="(note, idx) in notes">
+            <div :class="note.type" class="note-card" v-for="(note, idx) in notes" :style="note.style">
             <notes-display :note="note" @remove="removeNote" @update="updateNote"/>
+            <input type="color" value="#E0CECA" id="primary_color" @change="changeBgc(note, $event)" >
             </div>
         </div>
     </section>
@@ -54,6 +55,10 @@ export default {
         }
     },
     methods: {
+        changeBgc(note, ev) {
+            note.style.backgroundColor = ev.target.value
+            this.updateNote(note)
+        },
         removeNote(noteId) {
             noteService.remove(noteId)
                 .then(() => noteService.query())
@@ -66,7 +71,6 @@ export default {
                 .then(() => noteService.query())
                 .then(notes => {
                     this.notes = notes
-                    console.log(this.notes);
                 })
         },
         changeCmp(cmpType) {

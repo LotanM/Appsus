@@ -3,12 +3,12 @@ export default {
     name: 'notes-display',
     props: ['note'],
     template: `
-        <section>
+        <section class="notes-display">
             <button @click="removeNote(note.id)" class="note-btns">☒</button>
             <button class="note-btns">
             <router-link :to="'/email/compose/'+note.id">@</router-link></button>
-
             <button v-if="note.type === 'note-txt'" @click="openTxtEditor" class="note-btns">✎</button>
+
             <div v-if="note.type === 'note-txt'">
                 {{note.info.txt}}
                 <form @submit.prevent="saveNewTxt(note)" v-if="toShow" class="txt-editor">
@@ -40,7 +40,7 @@ export default {
         return {
             currTodo: null,
             message: null,
-            toShow: false
+            toShow: false,
         }
     },
     methods: {
@@ -64,7 +64,7 @@ export default {
         },
         openTxtEditor() {
             this.toShow = true
-            
+
         },
         saveNewTxt(currNote) {
             this.toShow = false

@@ -51,7 +51,7 @@ function remove(noteId) { //delete note, returns Promise
     return storageService.remove(NOTES_KEY, noteId)
 }
 
-function update(updatedNote){
+function update(updatedNote) {
     return storageService.put(NOTES_KEY, updatedNote)
 }
 
@@ -67,7 +67,7 @@ function getEmptyNoteTxt() {
             txt: ''
         },
         style: {
-            backgroundColor: "#00d"
+            backgroundColor: "#99a2ff"
         },
         isPinned: true
     }
@@ -83,7 +83,7 @@ function getEmptyNoteTodo() {
             ]
         },
         style: {
-            backgroundColor: "#00d"
+            backgroundColor: "#b99f7b"
         },
         isPinned: true
     }
@@ -98,7 +98,7 @@ function getEmptyNoteVideo() {
             title: "my video"
         },
         style: {
-            backgroundColor: "#00d"
+            backgroundColor: "#b9ffb7"
         },
         isPinned: true
     }
@@ -112,7 +112,7 @@ function getEmptyNoteImg() {
             title: "my image"
         },
         style: {
-            backgroundColor: "#00d"
+            backgroundColor: "#c0c0c0"
         },
         isPinned: true
     }
@@ -130,9 +130,9 @@ function _createNotes() {
                     txt: "Fullstack Me Baby!"
                 },
                 style: {
-                    backgroundColor: "#00d"
+                    backgroundColor: "#b07eb4"
                 },
-                isPinned: false
+                isPinned: false,
             },
             {
                 id: utilService.makeId(),
@@ -144,7 +144,7 @@ function _createNotes() {
                     ]
                 },
                 style: {
-                    backgroundColor: "#00d"
+                    backgroundColor: "#6497b1"
                 },
                 isPinned: false
             },
@@ -156,7 +156,7 @@ function _createNotes() {
                     title: "my image"
                 },
                 style: {
-                    backgroundColor: "#00d"
+                    backgroundColor: "#ffd700"
                 },
                 isPinned: true
             },
@@ -168,7 +168,7 @@ function _createNotes() {
                     title: "my video"
                 },
                 style: {
-                    backgroundColor: "#00d"
+                    backgroundColor: "#f7347a"
                 },
                 isPinned: true
             }

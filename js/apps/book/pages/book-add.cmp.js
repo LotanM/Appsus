@@ -5,7 +5,7 @@ export default {
     name: 'book-add',
     template: `
     <section class="book-add">
-        <h1>Search Google Books</h1>
+        <p>Search Google Books</p>
         <input type="text" placeholder="Enter book name / author" @input="updateData" v-model="searchStr">
         <ul v-if="searchResults && searchStr" class="results-list">
             <li v-if="isSearchResultsShown" v-for="(searchResult, idx) in searchResults" :key="idx" class="results-list-container" >

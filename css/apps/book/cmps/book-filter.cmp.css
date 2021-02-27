@@ -3,18 +3,16 @@
 .book-filter {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-content: center;
+    align-items: flex-start;
 }
 
 .book-filter input {
-    height: 4vh;
     outline: none;
     text-align: center;
 }
 .book-filter .num-input{
-    width: 60px
+    width: 3rem;
 }
 .book-filter .txt-input{
-    width: 150px
+    width: 150px;
 }

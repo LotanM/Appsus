@@ -19,7 +19,7 @@ export default {
                 <router-link to="/email">sent</router-link>
             </li> 
             <li class="starred" @click="currMenu = 'starred'">
-                <router-link to="/email"><img src="../../../icons/star.png" alt="">Starred</router-link>
+                <router-link to="/email"><img src="icons/star.png" alt="">Starred</router-link>
             </li> 
         </ul>
         <router-view :emails="emailsToShow" @remove="removeEmail" @save="loadEmails" @filtered="setFilter" @read="updateEmail" @starred="updateEmail"/>
