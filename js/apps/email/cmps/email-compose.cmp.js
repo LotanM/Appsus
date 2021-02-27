@@ -17,7 +17,6 @@ export default {
                 <input id="subject" placeholder="Subject" type="text" v-model="email.subject">
             </div>
             <div>
-                <!-- <label for="body">Body: </label><br> -->
                 <textarea rows="10" cols="50" id="body" placeholder="Type in your words" type="text" v-model="email.body"></textarea>
             </div>
             </div>
