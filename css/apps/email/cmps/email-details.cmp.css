@@ -2,14 +2,22 @@
     width: 100%;
     position: relative;
     margin-left: 1rem;
+    margin-top: 0.5rem;
     text-align: left;
 }
 
 .email-details>:first-child {
-    position: absolute;
-    right:2rem;
+    border: none;
+    float: right;
+    background-color: transparent;
+    font-size: inherit;
+    color:inherit;
+    margin-top: 0.25rem;
 }
 
+.email-details a:hover, .email-details button:hover{
+    color:  #fff7f7d3;
+}
 .email-details>*:not(:first-child) {
     margin-bottom: 0.5rem;
 }
