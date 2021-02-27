@@ -29,7 +29,7 @@ export default {
     `,
     data() {
         return {
-            email: null
+            email: null,
         }
     },
     methods: {
@@ -61,9 +61,23 @@ export default {
         emailId() {
             return this.$route.params.emailId
         },
+        noteTxt() {
+            return this.$route.params.noteTxt
+        }
     },
     created() {
-        if (this.emailId) {
+    //     if(this.noteTxt) {
+    //         const txt = this.noteTxt
+    //         this.email = emailService.getEmptyEmail()
+    //         this.email.body = txt
+    //         this.email.subject = 'from Notes'
+        //     emailService.query()
+        //         .then(emails => {
+        //             this.emails = emails
+        //             this.currCmp = emails[0]
+        //         })
+        // }
+        if(this.emailId) {
             console.log(this.emailId);
             emailService.getById(this.emailId)
             .then(email => {
