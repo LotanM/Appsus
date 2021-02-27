@@ -23,7 +23,7 @@ export default {
             {{answer}}
         </div>
         <div class="notes-display-container">
-            <div :class="note.type" class="note-card" v-for="(note, idx) in notes.cmps">
+            <div :class="note.type" class="note-card" v-for="(note, idx) in notes">
             <notes-display :note="note" @remove="removeNote"/>
             </div>
         </div>
@@ -41,16 +41,20 @@ export default {
         noteService.query()
             .then(notes => {
                 this.notes = notes
-                this.currCmp = notes.cmps[0]
+                this.currCmp = notes[0]
             })
     },
     methods: {
-        removeNote(noteId){
+        removeNote(noteId) {
             noteService.remove(noteId)
+                .then(()=>noteService.query())
+                .then(notes => {
+                    this.notes = notes
+                })
         },
         changeCmp(cmpType) {
             console.log(cmpType)
-            this.currCmp = this.notes.cmps.find(cmp => cmp.type === cmpType)
+            this.currCmp = this.notes.find(cmp => cmp.type === cmpType)
         },
         setAns(ans) {
             this.answer = ans

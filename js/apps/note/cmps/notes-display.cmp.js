@@ -1,9 +1,10 @@
 
 export default {
     name: 'notes-display',
-    props: ['note', "notes"],
+    props: ['note'],
     template: `
         <section>
+            <button @click="removeNote(note.id)">X</button>
             <div v-if="note.type === 'note-txt'">
                 {{note.info.txt}}
             </div>
@@ -25,7 +26,6 @@ export default {
                 <iframe v-if="note.type === 'note-video'" :src="convertToEmbeded">
                 </iframe>
             </div> 
-            <button @click="removeNote(note.id)">X</button>
             </section>
     `,
     data() {

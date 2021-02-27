@@ -6,9 +6,9 @@ export const storageService = {
     remove,
     postMany
 }
-
+//var entities = JSON.parse(localStorage.getItem(entityType)) || []
 function query(entityType) {
-    var entities = JSON.parse(localStorage.getItem(entityType)) || []
+    var entities = JSON.parse(localStorage.getItem(entityType))
     return Promise.resolve(entities);
 }
 
@@ -47,8 +47,6 @@ function put(entityType, updatedEntity) {
 }
 
 function remove(entityType, entityId) {
-    console.log('entityType', entityType)
-    console.log('entityId', entityId)
     return query(entityType)
         .then(entities => {
             const idx = entities.findIndex(entity => entity.id === entityId);
