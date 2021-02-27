@@ -3,7 +3,7 @@ export default {
     name: "note-img",
     template: `
         <section>
-            <input type="text" v-model="val" @change="reportVal" :list="listId" placeholder="img src here" />  
+            <input type="text" v-model="val" @change="reportVal" :list="listId" placeholder="Enter image URL..." />  
         </section>
         `,
     props: ["info"],

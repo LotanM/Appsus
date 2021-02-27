@@ -4,7 +4,7 @@ export default {
     template: `
         <section>
             <label>
-                <input type="text" v-model="val" @change="reportVal" :list="listId" placeholder="Enter comma seperated list"/>
+                <input type="text" v-model="val" @change="reportVal" :list="listId" placeholder="Enter comma seperated list..."/>
             </label>
         </section>
         `,
