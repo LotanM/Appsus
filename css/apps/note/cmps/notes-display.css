@@ -25,6 +25,11 @@ iframe {
     background-color: rgb(233, 173, 62);
     text-align: center;
 }
+.note-txt .txt-editor textarea{
+    background-color: transparent;
+    border: 1px solid palegoldenrod;
+    height: 100%;
+}
 
 .note-app .note-todo {
     height: 200px;
@@ -64,4 +69,9 @@ iframe {
     color: rgb(39, 39, 39);
     text-align: center;
 }
+
+.show {
+    display: inline-block;
+}
+
 

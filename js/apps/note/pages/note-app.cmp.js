@@ -8,7 +8,7 @@ import { noteService } from '../services/note.service.js'
 export default {
     name: 'note-app',
     template: `
-        <section v-if="currCmp" class="note-app">
+        <section v-if="currCmp" class="note-app"> 
             <form @submit.prevent="save" class="note-compose-container">
                 <component :is="currCmp.type" :info="currCmp.info" @setVal="setAns($event)"></component>
                 <div class="cmp-type-container"> 
@@ -19,9 +19,6 @@ export default {
                 </div>
             </div>
         </form>
-        <!-- <div class="curr-note">
-            {{answer}}
-        </div> -->
         <div class="notes-display-container">
             <div :class="note.type" class="note-card" v-for="(note, idx) in notes">
             <notes-display :note="note" @remove="removeNote" @update="updateNote"/>
@@ -46,17 +43,18 @@ export default {
     methods: {
         removeNote(noteId) {
             noteService.remove(noteId)
-                .then(()=>noteService.query())
+                .then(() => noteService.query())
                 .then(notes => {
                     this.notes = notes
                 })
         },
-        updateNote(noteId) {
-            noteService.update(noteId)
-                .then(()=>noteService.query())
-                .then(notes => {
-                    this.notes = notes
-                })
+        updateNote(noteObj) {
+            noteService.update(noteObj)
+            .then(() => noteService.query())
+            .then(notes => {
+                this.notes = notes
+                console.log(this.notes);
+            })
         },
         changeCmp(cmpType) {
             this.currCmp = this.notes.find(cmp => cmp.type === cmpType)
