@@ -1,18 +1,20 @@
+.header-container{
+    padding: 0.2rem 0;
+    width: 100%;
+    background-color: #ffffff5e;
+    border-bottom:rgba(0, 0, 0, 0.2) solid 1px;
+}
+
 .app-header {
-    box-sizing: content-box;
-    padding: 0.25rem 0 0.25rem 0;
+    /* box-sizing: content-box; */
     display: flex;
+    margin: 0 auto;
     background-color: #ffffff5e;
     height: 10vh;
-    width: 100%;
     justify-content: space-between;
     align-items: center;
     user-select: none;
-    border-bottom: #808080 1px solid;
-}
-
-.app-header>* {
-    margin: 0px 20px 0px 20px;
+    width: 90%;
 }
 
 .app-header .menu-icon {

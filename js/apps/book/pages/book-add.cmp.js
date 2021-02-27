@@ -5,11 +5,11 @@ export default {
     name: 'book-add',
     template: `
     <section class="book-add">
-        <h1>Add book from Gogle Books</h1>
+        <h1>Search Google Books</h1>
         <input type="text" placeholder="Enter book name / author" @input="updateData" v-model="searchStr">
-        <ul v-if="searchResults" class="results-list">
+        <ul v-if="searchResults && searchStr" class="results-list">
             <li v-if="isSearchResultsShown" v-for="(searchResult, idx) in searchResults" :key="idx" class="results-list-container" >
-                <p class="search-result">{{formattedSearchResult(searchResult)}}..<button @click="addBook(searchResult)"> ➕ </button></p>
+                <p class="search-result"><button @click="addBook(searchResult)">➕</button>{{formattedSearchResult(searchResult)}}</p>
             </li>
         </ul>
     </section>
@@ -24,7 +24,8 @@ export default {
     },
     methods: {
         formattedSearchResult(searchResult) {
-            return searchResult.title.substring(0, 40);
+            if (searchResult.title.length>30) return searchResult.title.substring(0, 30)+'..';
+            return searchResult.title
         },
         updateData() {
             if (!this.searchStr) return

@@ -10,8 +10,6 @@ export default {
             <div>
                 <label>From</label>
                 <input class="num-input" type="number" @input="setFilter" placeholder="price" v-model.number="filterBy.fromPrice">
-            </div>
-            <div>
                 <label>To</label>
                 <input class="num-input" type="number" @input="setFilter" placeholder="price" v-model.number="filterBy.toPrice">
             </div>

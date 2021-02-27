@@ -6,6 +6,7 @@
 }
 
 .book-preview-container {
+    background-color:rgb(162, 235, 192, 0.3);
     width: 150px;
     min-height: 270px;
     max-height: fit-content;

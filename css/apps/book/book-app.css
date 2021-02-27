@@ -8,16 +8,15 @@
 
 .book-app {
     background-color: rgb(162, 235, 192);
+    width: 100%;
+    margin: 0 auto;
     text-align: center;
     height: fit-content;
-    padding: 0.5rem;
 }
 
-/* .book-app >*:not(:last-child) {
-    display: flex;
-} */
-
 .book-inputs{
+    margin: 0.5rem auto;
+    width: 90%;
     display: flex;
     justify-content: space-between;
     margin-bottom: 0.5rem;

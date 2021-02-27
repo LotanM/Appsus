@@ -11,7 +11,7 @@ export default {
                 <router-link :to="'/book/'+book.id">    
                 <book-preview :book="book"/>
                 </router-link>
-                <button class="delete-btn" @click="remove(book.id)">delete book</button>
+                <button class="delete-btn" @click="remove(book.id)">Delete</button>
             </li>
         </ul>
     `,
