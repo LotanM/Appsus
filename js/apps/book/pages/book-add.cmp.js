@@ -63,6 +63,7 @@ export default {
                         type: 'success'
                     }
                     eventBus.$emit('show-msg', msg)
+                    this.$emit('added')
                     this.isSearchResultsShown = false;
                 })
                 .catch(err => {

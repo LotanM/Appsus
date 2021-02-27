@@ -11,7 +11,7 @@ export default {
         <section class="book-app">
             <div class="book-inputs">
                 <book-filter @filtered="setFilter"/>
-                <book-add/>
+                <book-add @added="loadBooks"/>
             </div>
             <book-list :books="booksToShow" @remove="removeBook"></book-list>
         </section>

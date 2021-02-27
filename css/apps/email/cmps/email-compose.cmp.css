@@ -1,9 +1,16 @@
-.email-compose-form {
-    height: 100%;
+.email-compose{
+    margin-top: 1rem;
+}
+.email-compose-form{
+    min-height: 90%;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
-
+.compose-form-fields>*{
+   margin-bottom: 1rem;
+}
 .email-compose .save {
     background-color: transparent;
     border: none;
@@ -19,8 +26,9 @@
     font-size: 0.9rem;
 }
 .email-compose-form>*:not(:last-child) {
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
 }
+
 
 .email-compose .compose-button-container{
     display: flex;

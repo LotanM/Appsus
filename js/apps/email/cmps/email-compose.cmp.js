@@ -7,6 +7,7 @@ export default {
     <section v-if="email" class="email-compose">
         <h4>{{title}}</h4>
         <form @submit.prevent.stop="save(email.id)" class="email-compose-form">
+            <div class="compose-form-fields">
             <div>
                 <label for="email-address">Email Address: </label>
                 <input id="email-address" placeholder="Email Address" type="email" v-model="email.to">
@@ -16,8 +17,9 @@ export default {
                 <input id="subject" placeholder="Subject" type="text" v-model="email.subject">
             </div>
             <div>
-                <label for="body">Body: </label><br>
-                <textarea rows="10" id="body" placeholder="Type in your words" type="text" v-model="email.body"></textarea>
+                <!-- <label for="body">Body: </label><br> -->
+                <textarea rows="10" cols="50" id="body" placeholder="Type in your words" type="text" v-model="email.body"></textarea>
+            </div>
             </div>
             <div class="compose-button-container">
                 <button type="submit" class="save">Save</button>
