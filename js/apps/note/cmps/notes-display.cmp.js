@@ -4,7 +4,7 @@ export default {
     props: ['note'],
     template: `
         <section class="notes-display">
-            <button @click="removeNote(note.id)" class="note-btns">☒</button>
+            <button @click="removeNote(note.id)" class="note-btns">✗</button>
             <button class="note-btns">
             <!-- <router-link :to="'/email/compose/' + note.info.txt">@</router-link> -->
         </button>
