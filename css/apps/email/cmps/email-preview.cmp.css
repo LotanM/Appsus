@@ -1,5 +1,7 @@
 
-
+.email-preview{
+    width: 100%;
+}
 .email-preview h4{
     display: flex;
     height: 50px;
@@ -14,15 +16,20 @@
     margin-left: 10px;
 }
 
+.email-preview-container{
+    display: flex;
+}
+
+.email-preview-container a{
+    width: 100%;
+}
 
 .unread{
     background-color: #ffffffb7;
 }
-
 .read{
     background-color: #ffffff77;
 }
-
 .email-preview {
     border-bottom: solid grey 1px;
 }

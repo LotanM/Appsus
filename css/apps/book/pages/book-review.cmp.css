@@ -41,9 +41,13 @@ textarea {
     resize: none;
 }
 
-.star-list:hover .star, .selected {
-    color: orange;
-}
-.star-list .star:hover~.star {
+.star-list{
+    display: flex;
+    align-self: center;
+    margin-right: 0.5rem;
     color: rgb(56, 56, 56);
+}
+
+.star-list:hover .star, .starred {
+    color: orange;
 }

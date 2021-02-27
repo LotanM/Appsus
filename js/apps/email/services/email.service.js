@@ -41,7 +41,8 @@ function getEmptyEmail() {
         isRead: false,
         sentAt: 1551133930594,
         from: 'appsus@ca.com',
-        to: ''
+        to: '',
+        isStarred: false,
     }
 }
 
@@ -64,7 +65,8 @@ function _createEmails() {
                 isRead: false,
                 sentAt: 1151139930694,
                 from: 'welcome@workona.com',
-                to: 'appsus@ca.com'
+                to: 'appsus@ca.com',
+                isStarred: false
             },
             {
                 id: utilService.makeId(),
@@ -75,7 +77,8 @@ function _createEmails() {
                 isRead: false,
                 sentAt: 1451133635584,
                 from: 'invitations@linkedin.com',
-                to: 'appsus@ca.com'
+                to: 'appsus@ca.com',
+                isStarred: false
             },
             {
                 id: utilService.makeId(),
@@ -86,7 +89,8 @@ function _createEmails() {
                 isRead: false,
                 sentAt: 1651139330594,
                 from: 'hello@avocode.com',
-                to: 'appsus@ca.com'
+                to: 'appsus@ca.com',
+                isStarred: false
             },
             {
                 id: utilService.makeId(),
@@ -97,7 +101,8 @@ function _createEmails() {
                 isRead: false,
                 sentAt: 17551133930594,
                 from: 'store-news@amazon.com',
-                to: 'appsus@ca.com'
+                to: 'appsus@ca.com',
+                isStarred: false
             },
             {
                 id: utilService.makeId(),
@@ -110,7 +115,8 @@ function _createEmails() {
                 isRead: false,
                 sentAt: 1551193930594,
                 from: 'appsus@ca.com',
-                to: 'welcome@workona.com'
+                to: 'welcome@workona.com',
+                isStarred: false
             }
         ]
         utilService.saveToStorage(EMAILS_KEY, emails)

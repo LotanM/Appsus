@@ -22,13 +22,12 @@ export default {
             </span>
             <button>Submit</button>
         </form>
-
     </section>
     `,
     data() {
         return {
             book: null,
-            numOfStar: null
+            numOfStar: null,
         }
     },
     methods: {
@@ -39,13 +38,14 @@ export default {
             console.log('number of start', numberOfStar)
             this.book.reviews['star-rating'] = numberOfStar
             this.numOfStar = numberOfStar;
-            
+
             for (let i = 1; i <= numberOfStar; i++) {
                 document.querySelector(`.star-${i}`).classList.add('selected')
             }
         },
         submitReview() {
             bookService.addReview(this.book.id, this.book.reviews)
+            this.$router.push('/book')
         }
     },
     created() {

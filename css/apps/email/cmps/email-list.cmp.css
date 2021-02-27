@@ -6,3 +6,9 @@
 .email-list-container {
     width: 100%;
 }
+
+.email-list img{
+    width: 30px;
+    height: fit-content;
+    cursor: pointer;
+}

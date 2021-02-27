@@ -11,17 +11,15 @@ export default {
             <router-link to="/book"><button class=back-btn>↵</button></router-link>
             <h1>{{book.title}}</h1>
             <p>{{book.authors[0]}} (Author)</p>
-            <p>Price: {{getCurrencyIcon}}</p>
+            <p>Price: {{formattedPrice}}</p>
             <p>Pages: {{book.pageCount}}</p>
             <h2>Description:</h2>
             <p>{{book.description}}</p>
-            <p>Subtitle: {{book.subtitle}}</p>
             <h4>Product Details:</h4>
             <p>Publish Date: {{book.publishedDate}}</p>
             <p>{{readingTime}}</p>
-            <p>{{bookPublishTime}}</p>
-            <p>Language: {{book.language}}</p>
-            <p >Categories: {{book.categories}}</p>
+            Reviews:
+            <p v-for="review in book.reviews">{{review}}</p>
             <router-link :to="'/book/review/'+book.id">add Review</router-link>
         </div>
     </section>
@@ -41,7 +39,7 @@ export default {
             if (this.book.publishedDate > (new Date().getFullYear() - 10)) return 'Veteran Book'
             else if (this.book.pageCount < (new Date().getFullYear() - 1)) return 'New!'
         },
-        getCurrencyIcon() {
+        formattedPrice() {
             return (this.book.listPrice.amount.toLocaleString('de-DE', {
                 style: 'currency',
                 currency: this.book.listPrice.currencyCode
