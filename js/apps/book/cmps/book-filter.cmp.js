@@ -12,7 +12,7 @@ export default {
                 <input class="num-input" type="number" @input="setFilter" placeholder="price" v-model.number="filterBy.fromPrice">
                 <label>To</label>
                 <input class="num-input" type="number" @input="setFilter" placeholder="price" v-model.number="filterBy.toPrice">
-            </div>
+            </div> 
         </section>    
     `,
     data(){

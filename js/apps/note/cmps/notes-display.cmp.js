@@ -5,10 +5,19 @@ export default {
     template: `
         <section>
             <button @click="removeNote(note.id)">X</button>
-            <!-- <button @click="editNote(note.id)">✎</button> -->
-            <div v-if="note.type === 'note-txt'" @click="updateTxt(note)">
+            <div v-if="note.type === 'note-txt'" >
+                <button @click="openTxtEditor">✎</button>
                 {{note.info.txt}}
-                <textarea cols="10" rows="7" class="txt-input" @input></textarea>
+                <form @submit="saveNewTxt(note)" v-if="toShow" class="txt-editor">
+                    <textarea cols="15" rows="5" v-model="note.info.txt"></textarea>
+                    <button type="submit">save</button>
+                </form>
+                <!-- <form @submit="saveNewTxt(note)" v-if="toShow">
+                    <p>{{message}}</p>
+                    <textarea cols="15" rows="4" v-model="message" placeholder="write here"></textarea>
+                    <button type="submit" @click="toShow = !toShow">save</button>
+                </form>
+                <button @click="openTxtEditor">✎</button> -->
             </div>
             
             <div v-if="note.type === 'note-todo'">
@@ -33,13 +42,15 @@ export default {
     data() {
         return {
             currTodo: null,
+            message: null,
+            toShow: false
         }
     },
     methods: {
-        removeNote(noteId){
+        removeNote(noteId) {
             this.$emit('remove', noteId)
         },
-        updateNote(noteObj){
+        updateNote(noteObj) {
             this.$emit('update', noteObj)
         },
         updateCurrTodo(idx, currNote) {
@@ -54,10 +65,14 @@ export default {
                 this.updateNote(currNote)
             }
         },
-        updateTxt(note) {
-            console.log(note);
-            console.log('note.info.txt:', note.info.txt)
-
+        openTxtEditor() {
+            this.toShow = true
+            
+        },
+        saveNewTxt(currNote) {
+            this.toShow = false
+            this.message =currNote.info.txt
+            this.updateNote(currNote)
         }
     },
     computed: {
