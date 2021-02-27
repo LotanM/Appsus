@@ -39,7 +39,7 @@ const routes = [
         component: noteApp,
     },
     {
-        path: '/note/:noteId',
+        path: '/note/:subject',
         component: noteApp,
     },
     {
