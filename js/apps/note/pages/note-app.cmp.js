@@ -18,7 +18,6 @@ export default {
                     <img type="button" src="../../../../icons/note-app/video.svg" @click="changeCmp('note-video')">
                 </div>
             </div>
-            <!-- <button>Save</button> -->
         </form>
         <div class="curr-note">
             {{answer}}

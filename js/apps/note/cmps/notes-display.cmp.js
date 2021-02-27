@@ -5,11 +5,11 @@ export default {
     template: `
         <section>
         <button>X</button>
-        <div v-if="note.type==='note-txt'">
+        <div v-if="note.type === 'note-txt'">
             {{note.info.txt}}
         </div>
 
-        <div v-if="note.type==='note-todo'">
+        <div v-if="note.type === 'note-todo'">
             <ul>
                 <h4>To do:</h4>
                 <li v-for="(todo, idx) in note.info.todos" :class="{done: todo.isChecked}" @click="updateTodo(idx)">
@@ -18,21 +18,15 @@ export default {
             </ul>
         </div>
 
-        <div v-if="note.type==='note-img'">
+        <div v-if="note.type === 'note-img'">
             <img :src="this.note.info.src" alt="">
-            <!-- {{note.info.src}} -->
         </div>
 
         <div >
-            <iframe v-if="note.type==='note-video'" :src="convertToEmbeded">
+            <iframe v-if="note.type === 'note-video'" :src="convertToEmbeded">
             </iframe>
         </div>
         
-        <div >
-            <iframe v-if="note.type==='note-video'" :src="convertToEmbeded">
-            </iframe>
-        </div>
-
         </section>
     `,
     data() {
