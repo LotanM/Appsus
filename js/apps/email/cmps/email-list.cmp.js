@@ -9,11 +9,12 @@ export default {
         <email-filter @filtered="setFilter"/>
         <ul class="email-list">
             <li v-for="email in emails" :key="email.id" class="email-preview-container">
-                <div class="star-list">
+                <div class="star-list modify-container">
                     <span class="star star-1 fa fa-star" :class="{starred: email.isStarred}" @click="toggleStarred(email)"></span>
+                    <input type="checkbox" id="checkbox" @click="toggleRead(email, $event)">
                 </div>
                 <router-link :to="'/email/'+email.id">
-                        <email-preview :email="email" @read="setEmailToRead"/>
+                    <email-preview :email="email" @read="setEmailToRead"/>
                 </router-link>
             </li>
         </ul>
@@ -26,10 +27,18 @@ export default {
         setEmailToRead(readEmail) {
             this.$emit('read', readEmail)
         },
-        toggleStarred(email){
-            console.log('email.isStarred', email.isStarred)
+        toggleStarred(email) {
             email.isStarred = !email.isStarred
             this.$emit('starred', email)
+
+        },
+        toggleRead(email, ev) {
+            email.isRead = !email.isRead
+            this.$emit('read', email)
+            ev.target.checked = false
+        },
+        title(email) {
+            return email.isRead ? 'Unread' : 'Read'
         }
     },
     components: {

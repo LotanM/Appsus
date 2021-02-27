@@ -48,6 +48,9 @@ textarea {
     color: rgb(56, 56, 56);
 }
 
-.star-list:hover .star, .starred {
+.star:hover, .starred {
+    color: orange;
+}
+.star:hover, .selected {
     color: orange;
 }

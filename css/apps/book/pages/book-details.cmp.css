@@ -1,5 +1,6 @@
 .book-details img {
-    height: 400px;
+    max-height: 300px;
+    margin-bottom: 1rem;
     border-radius: 5px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
@@ -24,6 +25,8 @@
 .book-details {
     display: flex;
     position: relative;
+    flex-wrap: wrap;
+    justify-content: space-around;
     background-color: #fefefe;
     margin: auto;
     padding: 10px;
@@ -37,7 +40,8 @@
 }
 
 .book-details-container {
-    margin-left: 50px;
+    max-width: 300px;
+    margin-right: 1rem;
 }
 
 @-webkit-keyframes animatetop {

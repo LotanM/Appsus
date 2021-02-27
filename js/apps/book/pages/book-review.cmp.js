@@ -35,7 +35,6 @@ export default {
             for (let i = 1; i <= 5; i++) {
                 document.querySelector(`.star-${i}`).classList.remove('selected')
             }
-            console.log('number of start', numberOfStar)
             this.book.reviews['star-rating'] = numberOfStar
             this.numOfStar = numberOfStar;
 
