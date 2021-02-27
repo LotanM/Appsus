@@ -6,18 +6,14 @@ export default {
         <section class="notes-display">
             <button @click="removeNote(note.id)" class="note-btns">☒</button>
             <button class="note-btns">
-<<<<<<< HEAD
-            <router-link :to="'/email/compose/'+note.id">@</router-link></button>
-=======
             <!-- <router-link :to="'/email/compose/' + note.info.txt">@</router-link> -->
         </button>
->>>>>>> bb40a004a1890daaea13c221fb0d28810145903f
             <button v-if="note.type === 'note-txt'" @click="openTxtEditor" class="note-btns">✎</button>
 
             <div v-if="note.type === 'note-txt'">
-               <p>{{note.info.txt}}</p> 
+                <p>{{note.info.txt}}</p> 
                 <form @submit.prevent="saveNewTxt(note)" v-if="toShow" class="txt-editor">
-                    <textarea cols="15" rows="7" v-model="note.info.txt"></textarea>
+                    <textarea cols="15" rows="4" v-model="note.info.txt"></textarea>
                     <button type="submit">save</button>
                 </form>
             </div>

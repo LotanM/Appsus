@@ -17,8 +17,8 @@ export default {
         </div>
         <h1 class="sentance">The proud developers of</h1>
         <div class="txt-container">
-         <img class="logo-icon" src="icons/logo-final.svg" alt="">
-        <h1 class="logo-txt">Appsus</h1>
+            <img class="logo-icon" src="icons/logo-final.svg" alt="">
+            <h1 class="logo-txt">Appsus</h1>
         </div>
     </section>
     `,

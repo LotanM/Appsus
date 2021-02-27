@@ -5,12 +5,15 @@
     text-align: center;
     user-select: none;
 }
+
 .about-page h3 {
     color: rgb(206, 167, 121);
 }
+
 .about-page .sentance {
     color: rgb(206, 167, 121);
 }
+
 .about-txt {
     width: 500px;
     display: flex;
@@ -21,8 +24,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    justify-content: space-between;
-    width: 500px;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    /* width: 500px; */
     margin: 0 auto;
     margin-bottom: 20px;
 }
@@ -37,7 +41,6 @@
     color: #ffffff;
 }
 
-
 .about-page .profile-img {
     margin-top: 30px;
     width: 200px;
@@ -49,25 +52,27 @@
 
 .about-page img {
     width: 100%;
-    height: 100%;
     border-radius: 50%;
 }
 
 .about-page .logo-icon {
+    margin-top: 2rem;
     height: 160px;
-    position: absolute;
     bottom: 107px;
 }
 
 .logo-txt {
-    margin-left: 290px;
+    margin-left: 10px;
+    width: 50%;
     font-family: monospace;
-    margin-top: 50px;
+    margin-top: 10px;
     color: black;
 }
 
 .txt-container {
     display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
 }

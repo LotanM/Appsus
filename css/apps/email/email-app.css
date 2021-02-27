@@ -50,18 +50,18 @@
 }
 
 .email-app .side-menu .compose::before {
-    content: url('icons/add.svg');
+    content: url('../../../icons/add.svg');
     margin-top: 5px;
 }
 
 .email-app .side-menu .inbox::before {
-    content: url('icons/inbox.svg');
+    content: url('../../../icons/inbox.svg');
     margin-top: 5px;
     margin-right: 10px;
 }
 
 .email-app .side-menu .sent::before {
-    content: url('icons/send.svg');
+    content: url('../../../icons/send.svg');
     margin-top: 5px;
     margin-right: 10px;
 }
