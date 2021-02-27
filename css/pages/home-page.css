@@ -1,42 +1,57 @@
+.home-page {
+    margin: 0;
+}
 
-.hero-txt-container {
+.hero-inner-container {
     padding: 1rem;
-    margin-left: 40%;
+    /* margin-left: 30%; */
+    color: white;
 }
 
 .home-page .hero {
-    background-image: url("../../images/background1.jpg");
     /* background-image: url("../../images/background2.jpg"); */
     /* background-image: url("../../images/background4.jpg"); */
-    background-repeat:no-repeat;
-    background-size:cover;
-    min-height: 100%;
-    width: 100%;
-    color: rgb(226, 186, 138);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)), url("../../images/background1.jpg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    width: 100vw;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     user-select: none;
 }
 
-.home-page .hero-txt-container>*:not(:last-child) {
-    margin-bottom: 1rem;
-}
-
-
-.home-page .hero button {
+.home-page button {
     border: none;
     outline: 0;
-    font-size: 20px;
     display: inline-block;
-    padding: 10px 25px;
-    color: rgb(56, 56, 56);
-    background-color: rgb(226, 186, 138);
+    background-color: #e2ba8a77;
     text-align: center;
     cursor: pointer;
     transition: .4s;
+    display: block;
+    width: 200px;
+    border: 3px solid #ffffffc4;
+    
+    /* Padding and margins */
+    padding: 0.5em;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    
+    /* Text styles */
+    color: white;
+    font-size: 1.5em;
+    font-weight:400;
+    border-radius: 20px;   
 }
 
 .home-page .hero button:hover {
-    border-radius: 10px;
-    color: coral;
+    border-radius: 0px;
+    /* color: coral; */
 }
 
 .home-page h3 span {
@@ -47,15 +62,17 @@
     color: #ffffff;
 }
 
-.home-page .images-container {
+/* .home-page .images-container {
     display: flex;
     justify-content: center;
     align-content: flex-start;
     /* width: fit-content; */
-    height: fit-content;
-    margin: 0 auto;
-}
 
+/* height: fit-content;
+    margin: 0 auto;
+} */
+
+/* 
 .images-container .profile-img {
     background-color: grey;
     margin-top: 1.5rem;
@@ -63,15 +80,17 @@
     height: 200px;
     border-radius: 50%;
     transition: 0.9s;
-}
+} */
 
+/* 
 .home-page .profile-img:hover {
     margin-top: 50px;
     width: 210px;
     height: 210px;
     border-radius: 50%;
-}
+} */
 
+/* 
 .home-page img {
     width: 100%;
     height: 100%;
@@ -80,4 +99,4 @@
 
 .home-page .profile-img:not(:first-child) {
     margin-left: 200px;
-}
+} */
