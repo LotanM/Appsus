@@ -58,6 +58,10 @@ const routes = [
                 path: 'compose',
                 component: emailCompose
             },
+            // {
+            //     path: 'compose/:noteTxt',
+            //     component: emailCompose
+            // },
             {
                 path: 'compose/:emailId',
                 component: emailCompose
@@ -67,7 +71,7 @@ const routes = [
                 component: emailDetails
             },
         ]
-    }
+    },
 ]
 
 export const myRouter = new VueRouter({ routes })
