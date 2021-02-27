@@ -86,7 +86,6 @@ export default {
         notes: function () {
             console.log('hi again')
             eventBus.$on('email-to-note', this.addNoteFromEmail)
-            
         }
     },
     components: {

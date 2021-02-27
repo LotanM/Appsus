@@ -69,8 +69,10 @@ export default {
             this.message =currNote.info.txt
             this.updateNote(currNote)
         },
+        // Mine
         SendAsEmail(note) {
-            
+            eventBus.$emit('note-to-email', note)
+            this.$router.push('/email/compose')
         }
     },
     computed: {

@@ -36,7 +36,11 @@ const routes = [
     },
     {
         path: '/note',
-        component: noteApp
+        component: noteApp,
+    },
+    {
+        path: '/note/:noteId',
+        component: noteApp,
     },
     {
         path: '/email',
