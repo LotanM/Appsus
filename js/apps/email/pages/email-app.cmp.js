@@ -12,14 +12,17 @@ export default {
             <li class="compose">
                 <router-link to="/email/compose">Compose</router-link>
             </li> 
-            <li class="inbox" @click="isInbox = true">
+            <li class="inbox" @click="currMenu = 'inbox'">
                 <router-link to="/email">inbox</router-link>
             </li> 
-            <li class="sent" @click="isInbox = false">
+            <li class="sent" @click="currMenu = 'sent'">
                 <router-link to="/email">sent</router-link>
             </li> 
+            <li class="starred" @click="currMenu = 'starred'">
+                <router-link to="/email"><img src="../../../icons/star.png" alt="">Starred</router-link>
+            </li> 
         </ul>
-        <router-view :emails="emailsToShow" @remove="removeEmail" @save="loadEmails" @filtered="setFilter" @read="updateEmail"/>
+        <router-view :emails="emailsToShow" @remove="removeEmail" @save="loadEmails" @filtered="setFilter" @read="updateEmail" @starred="updateEmail"/>
     </div>
     </section>
     `,
@@ -27,7 +30,7 @@ export default {
         return {
             emails: [],
             filterBy: null,
-            isInbox: true
+            currMenu: 'inbox'
         }
     },
     methods: {
@@ -45,21 +48,26 @@ export default {
                 .then(this.loadEmails)
                 .then(this.$router.push('/email'))
         },
-        updateEmail(readEmail) {
-            emailService.update(readEmail)
+        updateEmail(updatedEmail) {
+            emailService.update(updatedEmail)
                 .then(() => this.loadEmails())
         }
     },
     computed: {
         emailsToShow() {
-            if (this.isInbox) {
+            if (this.currMenu === 'inbox') {
                 var emailsToShow = this.emails.filter(email => {
                     return email.to === 'appsus@ca.com'
                 })
             }
-            else {
+            else if (this.currMenu === 'sent') {
                 var emailsToShow = this.emails.filter(email => {
                     return email.to !== 'appsus@ca.com'
+                })
+            }
+            else {
+                var emailsToShow = this.emails.filter(email => {
+                    return email.isStarred === true
                 })
             }
             if (this.filterBy && this.filterBy.byName) {

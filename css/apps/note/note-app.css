@@ -54,6 +54,6 @@
     justify-content: space-around;
 }
 
-.selected {
+.note-app .selected {
 border: 2px solid red;
 }

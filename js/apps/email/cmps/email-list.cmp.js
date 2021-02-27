@@ -9,6 +9,9 @@ export default {
         <email-filter @filtered="setFilter"/>
         <ul class="email-list">
             <li v-for="email in emails" :key="email.id" class="email-preview-container">
+                <div class="star-list">
+                    <span class="star star-1 fa fa-star" :class="{starred: email.isStarred}" @click="toggleStarred(email)"></span>
+                </div>
                 <router-link :to="'/email/'+email.id">
                         <email-preview :email="email" @read="setEmailToRead"/>
                 </router-link>
@@ -20,8 +23,13 @@ export default {
         setFilter(filterBy) {
             this.$emit('filtered', filterBy)
         },
-        setEmailToRead(readEmail){
+        setEmailToRead(readEmail) {
             this.$emit('read', readEmail)
+        },
+        toggleStarred(email){
+            console.log('email.isStarred', email.isStarred)
+            email.isStarred = !email.isStarred
+            this.$emit('starred', email)
         }
     },
     components: {
