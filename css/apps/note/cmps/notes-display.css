@@ -43,6 +43,9 @@ iframe {
     margin-left: 25px;
     cursor: pointer;
 }
+.note-app .note-todo li:hover {
+    text-decoration: line-through;
+}
 
 .done {
     text-decoration: line-through;

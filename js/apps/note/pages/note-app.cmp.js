@@ -19,12 +19,12 @@ export default {
                 </div>
             </div>
         </form>
-        <div class="curr-note">
+        <!-- <div class="curr-note">
             {{answer}}
-        </div>
+        </div> -->
         <div class="notes-display-container">
             <div :class="note.type" class="note-card" v-for="(note, idx) in notes">
-            <notes-display :note="note" @remove="removeNote"/>
+            <notes-display :note="note" @remove="removeNote" @update="updateNote"/>
             </div>
         </div>
     </section>
@@ -34,7 +34,6 @@ export default {
             notes: null,
             answer: '',
             currCmp: null,
-            // selected: 'selected'
         }
     },
     created() {
@@ -52,8 +51,14 @@ export default {
                     this.notes = notes
                 })
         },
+        updateNote(noteId) {
+            noteService.update(noteId)
+                .then(()=>noteService.query())
+                .then(notes => {
+                    this.notes = notes
+                })
+        },
         changeCmp(cmpType) {
-            console.log(cmpType)
             this.currCmp = this.notes.find(cmp => cmp.type === cmpType)
         },
         setAns(ans) {

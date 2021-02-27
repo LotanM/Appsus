@@ -5,14 +5,16 @@ export default {
     template: `
         <section>
             <button @click="removeNote(note.id)">X</button>
-            <div v-if="note.type === 'note-txt'">
+            <!-- <button @click="editNote(note.id)">✎</button> -->
+            <div v-if="note.type === 'note-txt'" @click="updateTxt(note)">
                 {{note.info.txt}}
+                <textarea cols="10" rows="7" class="txt-input" @input></textarea>
             </div>
             
             <div v-if="note.type === 'note-todo'">
                 <ul>
                     <h4>To do:</h4>
-                    <li v-for="(todo, idx) in note.info.todos" :class="{done: todo.isChecked}" @click="updateTodo(idx)">
+                    <li v-for="(todo, idx) in note.info.todos" :class="{done: todo.isChecked}" @click="updateCurrTodo(idx, note)">
                         - {{note.info.todos[idx].txt}}
                     </li> 
                 </ul>
@@ -37,19 +39,26 @@ export default {
         removeNote(noteId){
             this.$emit('remove', noteId)
         },
-        updateTodo(idx) {
+        updateNote(noteObj){
+            this.$emit('update', noteObj)
+        },
+        updateCurrTodo(idx, currNote) {
             this.currTodo = this.note.info.todos[idx];
             if (!this.currTodo.isChecked) {
-                // Doesnt save changes to localstorage YET
                 this.currTodo.doneAt = Date.now()
-                console.log('currTodo.doneAt:', this.currTodo.doneAt)
                 this.currTodo.isChecked = true;
-                console.log('currTodo.isChecked:', this.currTodo.isChecked)
+                this.updateNote(currNote)
             } else {
                 this.currTodo.doneAt = null
                 this.currTodo.isChecked = false;
+                this.updateNote(currNote)
             }
         },
+        updateTxt(note) {
+            console.log(note);
+            console.log('note.info.txt:', note.info.txt)
+
+        }
     },
     computed: {
         convertToEmbeded() {

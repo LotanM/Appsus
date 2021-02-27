@@ -5,6 +5,7 @@ export const noteService = {
     query,
     addNote,
     remove,
+    update,
     save,
     getEmptyNoteTxt,
     getEmptyNoteTodo,
@@ -49,9 +50,12 @@ function query() { //get all notes, returns Promise
 function remove(noteId) { //delete note, returns Promise
     return storageService.remove(NOTES_KEY, noteId)
 }
-// function getById(id) { //get note by id, returns Promise
-//     return storageService.get(NOTES_KEY, id)
-// }
+
+function update(updatedNote){
+    return storageService.put(NOTES_KEY, updatedNote)
+}
+
+
 
 // Empty notes:
 
@@ -136,7 +140,7 @@ function _createNotes() {
                 info: {
                     todos: [
                         { txt: "Do that", doneAt: null, isChecked: false },
-                        { txt: "Do this", doneAt: 187111111, isChecked: false }
+                        { txt: "Do this", doneAt: null, isChecked: false }
                     ]
                 },
                 style: {
