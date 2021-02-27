@@ -4,6 +4,7 @@ import noteImg from '../cmps/note-img.cmp.js'
 import noteVideo from '../cmps/note-video.cmp.js'
 import notesDisplay from '../cmps/notes-display.cmp.js'
 import { noteService } from '../services/note.service.js'
+import { eventBus } from '../../../services/event-bus.service.js'
 
 export default {
     name: 'note-app',
@@ -31,6 +32,7 @@ export default {
             notes: null,
             answer: '',
             currCmp: null,
+            noteFromEmail: null
         }
     },
     created() {
@@ -50,11 +52,11 @@ export default {
         },
         updateNote(noteObj) {
             noteService.update(noteObj)
-            .then(() => noteService.query())
-            .then(notes => {
-                this.notes = notes
-                console.log(this.notes);
-            })
+                .then(() => noteService.query())
+                .then(notes => {
+                    this.notes = notes
+                    console.log(this.notes);
+                })
         },
         changeCmp(cmpType) {
             this.currCmp = this.notes.find(cmp => cmp.type === cmpType)
@@ -66,11 +68,25 @@ export default {
             noteService.save(this.answer, this.currCmp.type)
             noteService.query()
                 .then(notes => this.notes = notes)
+        },
+        addNoteFromEmail(note){
+            this.noteFromEmail = note
+            console.log('this.noteFromEmail', this.noteFromEmail)
+            noteService.save(this.noteFromEmail.subject, 'note-txt')
+            noteService.query()
+                .then(notes => this.notes = notes)
         }
     },
     computed: {
         changeClass(note) {
             return note.type
+        }
+    },
+    watch: {
+        notes: function () {
+            console.log('hi again')
+            eventBus.$on('email-to-note', this.addNoteFromEmail)
+            
         }
     },
     components: {
