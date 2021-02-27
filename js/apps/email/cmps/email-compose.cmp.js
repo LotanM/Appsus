@@ -60,21 +60,21 @@ export default {
         },
         emailId() {
             return this.$route.params.emailId
-        }
+        },
     },
     created() {
-        
         if (this.emailId) {
+            console.log(this.emailId);
             emailService.getById(this.emailId)
-                .then(email => {
-                    email.to = email.from
-                    email.from = 'appsus@ca.com'
-                    email.isRead = false;
-                    email.isStarred = false;
-                    email.subject = 'Re: ' + email.subject
-                    email.body = email.body + "\n" + '---------------------------------------------------------' + "\n"
-                    this.email = email
-                })
+            .then(email => {
+                email.to = email.from
+                email.from = 'appsus@ca.com'
+                email.isRead = false;
+                email.isStarred = false;
+                email.subject = 'Re: ' + email.subject
+                email.body = email.body + "\n" + '---------------------------------------------------------' + "\n"
+                this.email = email
+            })
         }
         else this.email = emailService.getEmptyEmail()
     },

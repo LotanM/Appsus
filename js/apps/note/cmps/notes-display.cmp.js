@@ -5,7 +5,9 @@ export default {
     template: `
         <section>
             <button @click="removeNote(note.id)" class="note-btns">☒</button>
-            <button @click="SendAsEmail(note)" class="note-btns">@</button>
+            <button class="note-btns">
+            <router-link :to="'/email/compose/'+note.id">@</router-link></button>
+
             <button v-if="note.type === 'note-txt'" @click="openTxtEditor" class="note-btns">✎</button>
             <div v-if="note.type === 'note-txt'">
                 {{note.info.txt}}
@@ -66,14 +68,9 @@ export default {
         },
         saveNewTxt(currNote) {
             this.toShow = false
-            this.message =currNote.info.txt
+            this.message = currNote.info.txt
             this.updateNote(currNote)
         },
-        // Mine
-        SendAsEmail(note) {
-            eventBus.$emit('note-to-email', note)
-            this.$router.push('/email/compose')
-        }
     },
     computed: {
         convertToEmbeded() {
