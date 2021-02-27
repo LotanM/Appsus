@@ -69,5 +69,7 @@ ul {
 /* BUTTON */
 button {
     cursor: pointer;
+    outline: 0;
+    
 }
 

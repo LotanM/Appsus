@@ -9,10 +9,9 @@ export default {
         </div> -->
         <div class="hero-inner-container">
             <h1>Welcome to Appsus</h1>
-            <h3>Set meetings via<span> Email</span></h3>
-            <h3><span>Write</span> notes</h3>
-            <h3>Manage your own<span> Book Shop</span></h3>
-            <h3>Do all of that using Appsus!</h3>
+            <h3>Purchase from our <span>Book Shop</span></h3>
+            <h3>Manage your <span>Email</span></h3>
+            <h3>Write <span>notes</span>  </h3>
             <router-link to="/about">
                  <button>About Us</button>
             </router-link>
