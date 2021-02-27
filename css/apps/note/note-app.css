@@ -1,4 +1,4 @@
-@import 'cmps/note-display.css';
+@import './cmps/note-display.css';
 
 .note-compose-container {
     display: flex;

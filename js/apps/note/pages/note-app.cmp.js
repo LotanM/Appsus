@@ -42,7 +42,7 @@ export default {
                 this.notes = notes
                 this.currCmp = notes[0]
             })
-            // .then(() => eventBus.$on('email-to-note', this.addNoteFromEmail))
+        // .then(() => eventBus.$on('email-to-note', this.addNoteFromEmail))
     },
     methods: {
         removeNote(noteId) {
@@ -84,6 +84,9 @@ export default {
         changeClass(note) {
             return note.type
         }
+    },
+    destroyed() {
+        eventBus.$off('email-to-note')
     },
     components: {
         noteTodo,
