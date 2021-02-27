@@ -63,6 +63,7 @@ export default {
         }
     },
     created() {
+        
         if (this.emailId) {
             emailService.getById(this.emailId)
                 .then(email => {
