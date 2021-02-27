@@ -1,3 +1,9 @@
+
+.note-app .note-card img {
+    max-width:100%;
+    max-height:200px;
+}
+
 .note-app .note-card {
     margin: 5px;
     padding: 10px;
@@ -44,12 +50,15 @@ iframe {
 }
 
 .note-app .note-video {
+    height: 220px;
     color: rgb(39, 39, 39);
     text-align: center;
 }
 
 .note-app .note-img {
+    height: 200px;
     width: 250px;
     color: rgb(39, 39, 39);
     text-align: center;
 }
+

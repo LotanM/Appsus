@@ -12,10 +12,10 @@ export default {
             <form @submit.prevent="save" class="note-compose-container">
                 <component :is="currCmp.type" :info="currCmp.info" @setVal="setAns($event)"></component>
                 <div class="cmp-type-container"> 
-                    <img type="button" src="../../../../icons/note-app/txt.svg"  @click="changeCmp('note-txt')">
-                    <img type="button" src="../../../../icons/note-app/img.svg" @click="changeCmp('note-img')">
-                    <img type="button" src="../../../../icons/note-app/list.svg" @click="changeCmp('note-todo')">
-                    <img type="button" src="../../../../icons/note-app/video.svg" @click="changeCmp('note-video')">
+                    <i class="fa fa-font" aria-hidden="true" @click="changeCmp('note-txt')"></i>
+                    <i class="fa fa-picture-o" aria-hidden="true" @click="changeCmp('note-img')"></i>
+                    <i class="fa fa-youtube-play" aria-hidden="true" @click="changeCmp('note-video')"></i>
+                    <i class="fa fa-list-ul" aria-hidden="true" @click="changeCmp('note-todo')"></i>
                 </div>
             </div>
         </form>
