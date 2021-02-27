@@ -9,7 +9,7 @@ export default {
                 <button @click="openTxtEditor">✎</button>
                 {{note.info.txt}}
                 <form @submit="saveNewTxt(note)" v-if="toShow" class="txt-editor">
-                    <textarea cols="15" rows="5" v-model="note.info.txt"></textarea>
+                    <textarea cols="15" rows="7" v-model="note.info.txt"></textarea>
                     <button type="submit">save</button>
                 </form>
                 <!-- <form @submit="saveNewTxt(note)" v-if="toShow">
