@@ -36,11 +36,22 @@ export default {
         }
     },
     created() {
-        noteService.query()
-            .then(notes => {
-                this.notes = notes
-                this.currCmp = notes[0]
-            })
+        const subject = this.$route.params.subject
+        if (subject) {
+            noteService.save(subject, 'note-txt')
+            noteService.query()
+                .then(notes => {
+                    this.notes = notes
+                    this.currCmp = notes[0]
+                })
+        }
+        else {
+            noteService.query()
+                .then(notes => {
+                    this.notes = notes
+                    this.currCmp = notes[0]
+                })
+        }
     },
     methods: {
         removeNote(noteId) {
@@ -69,14 +80,14 @@ export default {
             noteService.query()
                 .then(notes => this.notes = notes)
         },
-        addNoteFromEmail(note) {
-            this.noteFromEmail = note
-            console.log('this.noteFromEmail', this.noteFromEmail)
-            const strForNote = this.noteFromEmail.subject + "\n" + this.noteFromEmail.body.substring(0, 40) + '...'
-            noteService.save(strForNote, 'note-txt')
-            noteService.query()
-                .then(notes => this.notes = notes)
-        }
+        // addNoteFromEmail(note) {
+        //     this.noteFromEmail = note
+        //     console.log('this.noteFromEmail', this.noteFromEmail)
+        //     const strForNote = this.noteFromEmail.subject + "\n" + this.noteFromEmail.body.substring(0, 40) + '...'
+        // noteService.save(strForNote, 'note-txt')
+        // noteService.query()
+        //     .then(notes => this.notes = notes)
+        // }
     },
     computed: {
         changeClass(note) {
