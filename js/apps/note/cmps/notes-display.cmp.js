@@ -4,30 +4,29 @@ export default {
     props: ['note', "notes"],
     template: `
         <section>
-        <button>X</button>
-        <div v-if="note.type === 'note-txt'">
-            {{note.info.txt}}
-        </div>
-
-        <div v-if="note.type === 'note-todo'">
-            <ul>
-                <h4>To do:</h4>
-                <li v-for="(todo, idx) in note.info.todos" :class="{done: todo.isChecked}" @click="updateTodo(idx)">
-                    - {{note.info.todos[idx].txt}}
-                </li> 
-            </ul>
-        </div>
-
-        <div v-if="note.type === 'note-img'">
-            <img :src="this.note.info.src" alt="">
-        </div>
-
-        <div >
-            <iframe v-if="note.type === 'note-video'" :src="convertToEmbeded">
-            </iframe>
-        </div>
-        
-        </section>
+            <div v-if="note.type === 'note-txt'">
+                {{note.info.txt}}
+            </div>
+            
+            <div v-if="note.type === 'note-todo'">
+                <ul>
+                    <h4>To do:</h4>
+                    <li v-for="(todo, idx) in note.info.todos" :class="{done: todo.isChecked}" @click="updateTodo(idx)">
+                        - {{note.info.todos[idx].txt}}
+                    </li> 
+                </ul>
+            </div>
+            
+            <div v-if="note.type === 'note-img'">
+                <img :src="this.note.info.src" alt="">
+            </div>
+            
+            <div>
+                <iframe v-if="note.type === 'note-video'" :src="convertToEmbeded">
+                </iframe>
+            </div> 
+            <button @click="removeNote(note.id)">X</button>
+            </section>
     `,
     data() {
         return {
@@ -35,6 +34,9 @@ export default {
         }
     },
     methods: {
+        removeNote(noteId){
+            this.$emit('remove', noteId)
+        },
         updateTodo(idx) {
             this.currTodo = this.note.info.todos[idx];
             if (!this.currTodo.isChecked) {

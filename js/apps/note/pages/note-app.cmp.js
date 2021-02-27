@@ -24,7 +24,7 @@ export default {
         </div>
         <div class="notes-display-container">
             <div :class="note.type" class="note-card" v-for="(note, idx) in notes.cmps">
-            <notes-display :note="note"/>
+            <notes-display :note="note" @remove="removeNote"/>
             </div>
         </div>
     </section>
@@ -45,13 +45,15 @@ export default {
             })
     },
     methods: {
+        removeNote(noteId){
+            noteService.remove(noteId)
+        },
         changeCmp(cmpType) {
             console.log(cmpType)
             this.currCmp = this.notes.cmps.find(cmp => cmp.type === cmpType)
         },
         setAns(ans) {
             this.answer = ans
-
         },
         save() {
             noteService.save(this.answer, this.currCmp.type)

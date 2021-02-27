@@ -27,6 +27,7 @@ body {
 }
 
 footer {
+    font-size: 0.9rem;
     display: flex;
     align-items: center;
     width: 100%;
@@ -35,7 +36,7 @@ footer {
 }
 
 footer >* {
-        margin: 0px 20px 0px 20px;    
+        margin: 0px 1rem 0px 1rem;    
 }
 
 a {
